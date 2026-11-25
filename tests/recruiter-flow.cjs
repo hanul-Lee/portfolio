@@ -11,8 +11,8 @@ let base;
     assert.equal(await page.locator('.more-project:visible').count(), 7);
     await page.locator('.more-project').first().focus();
     await page.keyboard.press('Enter');
-    await page.waitForURL('**/project-responsive.html');
-    assert.ok(page.url().endsWith('project-responsive.html'));
+    await page.waitForURL('**/project-platform.html');
+    assert.ok(page.url().endsWith('project-platform.html'));
     for (const slug of ['platform', 'tbm', 'dashboard', 'designsystem', 'intranet', 'kanvan']) {
       await page.goto(`${base}/project-${slug}.html`);
       assert.equal(await page.locator('.case-brief dd').count(), 3);

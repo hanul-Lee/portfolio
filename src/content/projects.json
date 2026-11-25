@@ -3,7 +3,7 @@
     "intranet": {
       "stage": "팀 프로젝트 · 미배포 · 팀 내부 설계·구현 확인",
       "summary": "홈에서 오늘 예약과 빠른 신청이 먼저 보이도록 우선순위를 정한 모바일 인트라넷",
-      "no": "08",
+      "no": "07",
       "type": "TEAM PROJECT · MOBILE WORKFLOW",
       "title": "회의실 예약·근태 신청 모바일 인트라넷",
       "domain": "Mobile Intranet Concept",
@@ -44,7 +44,7 @@
     "dashboard": {
       "stage": "업무 프로젝트 · 조회 구조를 PDF 보고서에 반영",
       "summary": "수치를 본 뒤 원인 프로젝트와 인원 기록까지 이어지는 판단 순서 설계",
-      "no": "07",
+      "no": "06",
       "type": "B2B DASHBOARD · DECISION SUPPORT",
       "title": "조회 목적에 맞춘 비용·인원 ERP 대시보드",
       "domain": "Project Cost & Workforce ERP Analysis Dashboard",
@@ -85,7 +85,7 @@
     "platform": {
       "stage": "업무 프로젝트 · 배포 후 실제 업무와 시연·전시에 사용",
       "summary": "필요한 자료가 어느 업무 메뉴에 있는지 지도 위에서 구분되게 만든 메뉴 UI",
-      "no": "06",
+      "no": "04",
       "type": "MULTI-USER PLATFORM · INFORMATION ARCHITECTURE",
       "title": "지도와 업무 자료를 연결한 통합 관리 플랫폼",
       "domain": "Construction Integrated Platform",
@@ -208,7 +208,7 @@
     "responsive": {
       "stage": "업무 프로젝트 · 반응형 웹 설계",
       "summary": "제품 하나를 찾는 과업을 기준으로 화면 크기별 배치를 정한 반응형 리뉴얼",
-      "no": "04",
+      "no": "08",
       "type": "RESPONSIVE WEB · UI RENEWAL",
       "title": "반응형 웹 전면 리뉴얼",
       "domain": "5G Testing Solutions Website",
@@ -247,7 +247,7 @@
     "measure": {
       "stage": "업무 프로젝트 · 웹·앱 설계·퍼블리싱",
       "summary": "부재 형상보다 ‘지금 측정할 수 있는가’가 먼저 보이도록 상태 흐름을 설계",
-      "no": "09",
+      "no": "05",
       "type": "B2B PLATFORM · FIELD DATA",
       "title": "구조물 현장 측정·관리 플랫폼",
       "domain": "Structural Field Measurement Platform",
@@ -364,7 +364,7 @@
     "skyautonet": {
       "stage": "업무 프로젝트 · 반응형 웹 설계",
       "summary": "방문자의 질문 순서대로 사업·적용 장면·기술 근거·문의를 배치한 콘텐츠 설계",
-      "no": "05",
+      "no": "09",
       "type": "WEB UX · BRAND UX · RESPONSIVE",
       "title": "자율주행 기술 기업을 이해시키는 웹 콘텐츠 설계",
       "domain": "SkyAutoNet Website Renewal",
@@ -2334,12 +2334,12 @@
     "tbm",
     "designsystem",
     "pet",
-    "responsive",
-    "skyautonet",
     "platform",
+    "measure",
     "dashboard",
     "intranet",
-    "measure",
+    "responsive",
+    "skyautonet",
     "kanvan"
   ]
 }

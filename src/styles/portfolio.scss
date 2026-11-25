@@ -578,6 +578,16 @@
   .other-item {
     min-width: 0;
   }
+  .other-item:only-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    align-items: end;
+  }
+  .other-item:only-child .other-copy {
+    padding: 0 0 8px;
+  }
   .other-visual {
     position: relative;
     display: flex;
@@ -841,6 +851,12 @@
     }
     .other-visual {
       height: 300px;
+    }
+    .other-item:only-child {
+      display: block;
+    }
+    .other-item:only-child .other-copy {
+      padding: 24px 0 0;
     }
     .more-project {
       min-height: 130px;
