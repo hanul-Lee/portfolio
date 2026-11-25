@@ -90,51 +90,127 @@ a=rect(24,196,342,92,'#f3f5f0',16)+rect(44,216,48,48,'#e1ebdd',24)+icon(57,229,'
 mobile('tbm-profile','fieldnote','내 확인 표시','필요할 때 언제든 바꿀 수 있어요.',a,back=True)
 a=rect(158,248,74,74,'#e8efe4',37)+icon(178,268,'check',GREEN,34)+t(195,381,'확인 표시를 저장했어요',25,INK,700).replace('x="195"','x="195" text-anchor="middle"')+t(195,420,'이제 오늘의 안전 기록을 작성할 수 있어요.',15,MUTED).replace('x="195"','x="195" text-anchor="middle"')+rect(24,486,342,104,'#f3f5f0',16)+t(44,521,'오늘의 기록',14,MUTED)+t(44,556,'모래빛 실증센터 · A팀',17,INK,600)+button(716,'안전 기록으로 돌아가기',GREEN)
 mobile('tbm-saved','fieldnote','저장 완료','',a,back=True)
-# Desktop is a practical document desk: persistent files, paper preview and record metadata.
+# Desktop: a calm document desk — slim icon rail, metadata header, tool strip and hairline-divided panes.
+# Layout language follows a three-pane reader (files · paper · info); only features the service had are drawn.
 def right(x,y,label,size=16,color=INK,weight=400):return t(x,y,label,size,color,weight).replace(f'x="{x}"',f'x="{x}" text-anchor="end"')
-def shell(active,title,sub):
- a=rect(0,0,1600,1000,BG,0)+rect(0,0,1600,76,'white',0)+t(26,49,'fieldnote',26,'#2e6247',750)+line(0,76,1600,76)+t(223,46,title,19,INK,650)+t(1040,46,'모래빛 실증센터 / A팀',14,MUTED)+pill(1360,23,'공개용 가상 데이터','#2e6247','#e7efe5',208)
- a+=rect(0,76,180,924,'#233f30',0)+t(24,124,'현장 기록',14,'#c2d1bf',600)
+def center(x,y,label,size=16,color=INK,weight=400):return t(x,y,label,size,color,weight).replace(f'x="{x}"',f'x="{x}" text-anchor="middle"')
+def vline(x,y,y2,color=LINE):return f'<path d="M{x} {y}V{y2}" stroke="{color}"/>'
+DESK_ICONS={
+ 'list':'M4 6 H20 M4 12 H20 M4 18 H20',
+ 'pages':'M4 4 H10 V20 H4 Z M14 4 H20 V20 H14 Z',
+ 'search':'M10.5 17 A6.5 6.5 0 1 1 10.5 4 A6.5 6.5 0 1 1 10.5 17 M15.5 15.5 L20 20',
+ 'download':'M12 4 V15 M7 10 L12 15 L17 10 M5 20 H19',
+ 'pen':'M4 20 L5 15 L15 5 L19 9 L9 19 Z M13 7 L17 11',
+ 'info':'M12 21 A9 9 0 1 1 12 3 A9 9 0 1 1 12 21 M12 11 V16 M12 8 V8.2',
+ 'close':'M6 6 L18 18 M18 6 L6 18',
+ 'plus':'M12 5 V19 M5 12 H19',
+ 'minus':'M5 12 H19',
+ 'left':'M15 5 L8 12 L15 19',
+ 'file':'M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19',
+ 'down':'M6 9 L12 15 L18 9',
+}
+def dicon(x,y,name,color=MUTED,size=20):
+ return f'<path d="{DESK_ICONS[name]}" transform="translate({x} {y}) scale({size/24})" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+def chip(x,y,kind,label,color=GREEN):
+ return rect(x,y+1,10,12,color,2)+t(x+17,y+12,label,11,color,700)
+def paper_thumb(x,y,w,h,tag,active=False):
+ a=rect(x,y,w,h,'white',4,GREEN if active else LINE)
+ if active:a+=f'<rect x="{x-2}" y="{y-2}" width="{w+4}" height="{h+4}" rx="6" fill="none" stroke="{GREEN}" stroke-width="2"/>'
+ for i in range(5):a+=line(x+8,y+14+i*9,x+w-8-(10 if i%2 else 0),y+14+i*9,'#d6ddd2')
+ return a+rect(x+6,y+h-18,26,12,'#e7efe3',3)+t(x+10,y+h-9,tag,8,GREEN,700)
+def shell(active,title,meta,chips):
+ a=rect(0,0,1600,1000,'white',0)
+ # Icon rail
+ a+=rect(0,0,76,1000,'white',0)+vline(76,0,1000)+rect(18,22,40,40,GREEN,11)+center(38,50,'f',22,'white',800)
  for i,(label,kind) in enumerate([('작업 준비','home'),('안전 기록','record'),('현장 문서','record'),('내 정보','user')]):
-  y=163+i*62
-  if label==active:a+=rect(12,y-12,156,46,'#dfe9d9',9)
-  color='#294d37' if label==active else '#c8d6c3';a+=icon(25,y,kind,color,21)+t(58,y+16,label,16,color,600)
- a+=t(24,909,'FIELD WORKSPACE',10,'#bdcbb6',600)+t(24,940,'모래빛 실증센터',13,'#bdcbb6')
+  y=112+i*84;on=label==active;color=GREEN if on else '#8d978a'
+  if on:a+=rect(10,y-8,56,64,'#eaf1e6',12)+rect(0,y+4,3,40,GREEN,1)
+  a+=icon(27,y+2,kind,color,22)+center(38,y+44,label.replace('작업 ','').replace('안전 ','').replace('현장 ','').replace('내 ',''),11,color,600)
+ a+=center(38,970,'v1.4',10,'#a6aea3',600)
+ # Header: title, counters, context line
+ a+=line(76,88,1600,88)+t(108,40,title,22,INK,650)
+ cx=108+sum(7 if ch==' ' else 22 for ch in title)+20
+ for kind,label in chips:a+=chip(cx,27,kind,label);cx+=sum(4 if ch==' ' else 11 for ch in label)+34
+ a+=t(108,70,meta,14,MUTED)
+ a+=rect(1306,30,170,30,'#eef3eb',15)+center(1391,50,'공개용 가상 데이터',12,GREEN,700)
+ a+=dicon(1500,35,'search',INK,20)+dicon(1546,35,'info',INK,20)
  return a
-# Record workspace.
-a=shell('안전 기록','오늘의 안전 기록','')
-for x,value,label in [(202,'9명','오늘 참여 인원'),(664,'8명','확인 완료'),(1126,'1명','확인 대기')]:
- a+=rect(x,100,440,120,'white',12,LINE)+t(x+23,136,label,15,MUTED)+t(x+23,190,value,35,'#2e6247',750)
-a+=rect(202,244,902,720,'white',12,LINE)+t(228,284,'작업 전 확인 일지',23,INK,700)+pill(986,260,'작성 중','#2e6247','#eaf1ec',90)+t(228,320,'2027.04.18 / 오전 작업 / A팀',15,MUTED)+line(228,343,1078,343)
-for y,label,value in [(386,'작업 구분','거더 조립 준비'),(452,'공유 사항','장비 이동 동선 확인'),(518,'주요 위험 요인','작업 공간 내 이동 간섭'),(584,'예방 활동','구역 구분 및 작업 전 안내')]:
- a+=t(228,y,label,16,MUTED)+t(428,y,value,18,INK,600)+line(228,y+25,1078,y+25)
-a+=t(228,674,'참여자 확인 이력',19,INK,700)
-for i,(name,time,status) in enumerate([('이도경','07:42','확인 완료'),('정하준','07:45','확인 완료'),('윤지안','-','확인 대기')]):
- y=708+i*71;a+=rect(228,y,850,54,BG,8)+t(248,y+34,name,17,INK,600)+t(548,y+34,time,16,MUTED)+right(1058,y+34,status,16,'#2e6247' if i<2 else '#2e6247',600)
-a+=rect(1126,244,440,338,'white',12,LINE)+t(1150,284,'확인 상태',22,INK,700)
-for i,(label,state) in enumerate([('작성 담당','확인 완료'),('현장 책임자','검토 대기'),('참여자','8 / 9명 확인')]):
- y=339+i*75;a+=t(1150,y,label,16,MUTED)+right(1542,y,state,17,'#2e6247' if i==1 else '#2e6247',600)+line(1150,y+24,1542,y+24)
-a+=rect(1126,606,440,358,'#e7efe3',12)+t(1150,650,'작업 전 체크',22,'#2e6247',700)
-for i,label in enumerate(['보호구 착용 확인','이동 동선 공유','작업 구역 정리']):
- y=686+i*66;a+=rect(1150,y,28,28,'white',8)+icon(1154,y+4,'check','#2e6247',20)+t(1194,y+22,label,17,INK,600)
-a+=t(1150,925,'가상 현장 기록 · 실제 운영 자료 아님',13,MUTED)
-save('tbm-journal',1600,1000,a,'FIELDNOTE 안전 기록과 확인 상태')
-# Document review workspace, inspired by an editor's three-panel organization.
-a=shell('현장 문서','현장 문서 열람','')+rect(202,100,300,866,'white',12,LINE)+t(224,139,'현장 자료',22,INK,700)+right(478,139,'3개',14,MUTED)+line(224,160,478,160)
-for i,(label,meta) in enumerate([('작업 전 안전 안내.pdf','2027.04.18 · 2쪽'),('작업 체크리스트.pdf','2027.04.17 · 1쪽'),('반입 장비 목록.xlsx','2027.04.15 · 12 KB')]):
- y=181+i*119;a+=rect(214,y,276,101,'#e7efe3' if i==0 else '#f6f7f3',9)+rect(229,y+17,37,46,'white',6)+t(233,y+44,'PDF' if i<2 else 'XLS',10,'#2e6247',700)+t(278,y+29,label,15,INK,650)+t(278,y+55,meta,13,MUTED)
- if i==0:a+=rect(214,y+17,3,67,'#2e6247',1)
-a+=t(224,815,'관련 기록',15,MUTED,600)+rect(224,837,254,52,'#2e6247',8)+t(245,870,'오늘의 안전 기록 보기',16,'white',600)+t(224,936,'공개용으로 작성한 가상 문서',12,MUTED)
-a+=rect(524,100,680,866,'#e6ebe2',12)+rect(544,116,640,52,'white',9)+t(563,148,'작업 전 안전 안내.pdf',16,INK,650)+right(1166,148,'1 / 2  ·  100%',14,MUTED)
-a+=rect(578,191,572,730,'white',2)+t(618,239,'FIELDNOTE / 안전관리팀',12,'#2e6247',700)+t(618,294,'작업 전 안전 안내',30,INK,750)+t(618,331,'모래빛 실증센터 · A팀',15,MUTED)+line(618,354,1110,354)
-for i,(title,body) in enumerate([('01  작업 준비','보호구와 장비의 상태를 확인합니다.'),('02  동선 공유','장비와 보행자의 이동 구역을 구분합니다.'),('03  작업 구역 확인','작업 공간의 간섭 요소를 함께 확인합니다.')]):
- y=404+i*115;a+=t(618,y,title,20,INK,700)+t(618,y+37,body,15,MUTED)
-a+=rect(618,754,492,83,'#f1f5ed',7)+t(638,787,'기록 안내',16,'#2e6247',650)+t(638,816,'실제 문서가 아닌 공개용 예시입니다.',14,MUTED)+t(618,883,'FICTIONAL DOCUMENT / 01',11,MUTED)
-a+=rect(1226,100,340,866,'white',12,LINE)+t(1250,141,'문서 정보',22,INK,700)+line(1250,163,1542,163)
-for i,(label,value) in enumerate([('현장','모래빛 실증센터'),('문서 구분','안전 안내'),('등록일','2027.04.18'),('등록 담당','이도경'),('열람 상태','문서 선택됨')]):
- y=203+i*88;a+=t(1250,y,label,14,MUTED)+t(1250,y+31,value,18,'#2e6247' if i==4 else INK,600)
-a+=rect(1250,670,292,52,'#2e6247',8)+t(1276,703,'문서 편집 화면으로 이동',16,'white',600)+rect(1250,735,292,48,'#f1f4ed',8,LINE)+t(1320,766,'파일 다운로드',16,INK,600)+line(1250,815,1542,815)+t(1250,851,'열람과 편집을 구분해',15,MUTED)+t(1250,879,'다음 행동을 확인합니다.',15,MUTED)+pill(1250,912,'가상 문서','#2e6247','#e7efe3',120)
+def tool(x,y,w,name,label='',on=False,color=INK):
+ a=''
+ if label:a+=dicon(x+(w-len(label)*13-28)//2,y+16,name,color,18)+t(x+(w-len(label)*13-28)//2+26,y+30,label,13,color,600)
+ else:a+=dicon(x+w//2-10,y+16,name,GREEN if on else color,20)
+ if on:a+=rect(x,y+50,w,2,GREEN,0)
+ return a
+# Document review workspace.
+a=shell('현장 문서','작업 전 안전 안내',"모래빛 실증센터 · A팀 · 등록 2027.04.18 · 이도경",[('file','자료 3개'),('pages','PDF · 2쪽')])
+# Tool strip (88–140): panel tabs · page nav · zoom · actions
+Y=88;a+=line(76,140,1600,140)
+a+=tool(76,Y,64,'list',on=True)+vline(140,Y,140)+tool(140,Y,64,'pages')+vline(204,Y,140)+vline(392,Y,140)
+for x,name in [(600,'left')]:a+=vline(x,Y,140)+dicon(x+22,Y+16,'left',INK,20)
+a+=vline(664,Y,140)+center(752,Y+32,'1  /  2',15,INK,600)+vline(840,Y,140)
+a+=f'<g transform="translate({840+42} {Y+26}) scale(-1 1) translate(-10 -10)">{dicon(0,0,"left",INK,20)}</g>'+vline(904,Y,140)
+a+=tool(904,Y,64,'minus')+vline(968,Y,140)+center(1016,Y+32,'100%',15,INK,600)+vline(1064,Y,140)+tool(1064,Y,64,'plus')+vline(1128,Y,140)
+a+=vline(1228,Y,140)+tool(1228,Y,148,'download','다운로드')+vline(1376,Y,140)+rect(1392,Y+9,128,34,GREEN,8)+dicon(1410,Y+17,'pen','white',18)+t(1436,Y+31,'문서 수정',14,'white',650)+vline(1536,Y,140)+tool(1536,Y,64,'info',on=True)
+# Left pane: files with paper thumbnails
+a+=vline(392,140,1000)+t(108,184,'현장 자료',17,INK,650)+rect(190,168,26,20,'#eef3eb',10)+center(203,183,'3',12,GREEN,700)+dicon(354,170,'close',MUTED,18)+line(76,206,392,206)
+for i,(label,meta,tag) in enumerate([('작업 전 안전 안내.pdf','2027.04.18 · 2쪽','PDF'),('작업 체크리스트.pdf','2027.04.17 · 1쪽','PDF'),('반입 장비 목록.hwp','2027.04.15 · 3쪽','HWP')]):
+ y=226+i*122;on=i==0
+ if on:a+=rect(88,y-8,292,108,'#f2f6ef',10)
+ a+=paper_thumb(104,y+4,64,84,tag,on)+t(188,y+32,label,15,INK,650 if on else 500)+t(188,y+56,meta,13,MUTED)
+ if on:a+=t(188,y+80,'열람 중',12,GREEN,700)
+a+=t(108,970,'공개용으로 작성한 가상 문서',12,'#97a094')
+# Centre: paper on a quiet canvas, cut off at the fold like a real reader
+a+=rect(392,140,836,860,'#f4f6f2',0)+f'<rect x="460" y="172" width="700" height="860" fill="white" stroke="#e1e6dd"/>'
+X=540;a+=t(X,236,'FIELDNOTE / 안전관리팀',12,GREEN,700)+right(1080,236,'01',12,'#a6aea3',600)
+a+=t(X,290,'작업 전 안전 안내',30,INK,750)+t(X,324,'모래빛 실증센터 · A팀 · 오전 작업',14,MUTED)+line(X,352,1080,352)
+a+=t(X,398,'1',19,GREEN,700)+t(X+28,398,'작업 전 확인 사항',19,INK,700)
+items=[('1.','작업 시작 전, 보호구와 장비의 상태를 함께 확인합니다.',['a) 안전모·안전화·장갑 착용 여부','b) 공구와 장비의 파손·누락 여부']),
+       ('2.','장비와 보행자의 이동 구역을 나누어 공유합니다.',['a) 장비 이동 경로와 대기 위치','b) 보행 통로와 출입 제한 구역']),
+       ('3.','작업 공간의 간섭 요소를 확인하고 정리합니다.',[]),
+       ('4.','확인한 내용은 오늘의 안전 기록에 남깁니다.',[])]
+y=444
+for no,body,subs in items:
+ a+=t(X,y,no,15,INK,500)+t(X+30,y,body,15,'#3a4a40')
+ y+=34
+ for s in subs:a+=t(X+58,y,s,14,MUTED);y+=30
+ y+=12
+a+=t(X,y+26,'2',19,GREEN,700)+t(X+28,y+26,'공유와 기록',19,INK,700)
+a+=t(X,y+72,'1.',15,INK,500)+t(X+30,y+72,'작업 책임자는 공유 내용을 참여자 모두에게 안내합니다.',15,'#3a4a40')
+a+=t(X,y+114,'2.',15,INK,500)+t(X+30,y+114,'참여자는 내용을 확인한 뒤 확인 표시를 남깁니다.',15,'#3a4a40')
+# Right pane: document info, related record, actions
+a+=vline(1228,140,1000)+t(1252,184,'문서 정보',17,INK,650)+dicon(1562,170,'close',MUTED,18)+line(1228,206,1600,206)
+for i,(label,value) in enumerate([('현장','모래빛 실증센터'),('문서 구분','안전 안내'),('형식','PDF · 2쪽'),('등록일','2027.04.18'),('등록 담당','이도경')]):
+ y=250+i*46;a+=t(1252,y,label,14,MUTED)+right(1576,y,value,15,INK,600)
+a+=line(1252,474,1576,474)+t(1252,512,'관련 기록',14,MUTED,600)
+a+=rect(1252,530,324,150,'white',10,LINE)+rect(1272,550,36,36,'#eaf1e6',18)+icon(1280,558,'record',GREEN,20)+t(1322,566,'오늘의 안전 기록',15,INK,650)+t(1322,586,'2027.04.18 · 오전 작업',12,MUTED)
+a+=rect(1520,553,40,22,'#eef3eb',11)+center(1540,568,'작성 중',10,GREEN,700)
+a+=rect(1272,606,284,54,'#f6f8f4',8,LINE)+dicon(1288,623,'file',GREEN,20)+t(1318,630,'작업 전 확인 일지',14,INK,600)+t(1318,648,'참여 9명 · 확인 8명',11,MUTED)
+a+=rect(1252,860,324,112,'#f4f6f2',10)+dicon(1272,880,'info',GREEN,18)+t(1300,894,'열람 모드',14,GREEN,700)+t(1272,926,'열람 중에는 문서가 바뀌지 않아요.',13,MUTED)+t(1272,950,'수정은 상단 ‘문서 수정’에서 시작합니다.',13,MUTED)
 save('tbm-documents',1600,1000,a,'FIELDNOTE 현장 문서 선택·열람·편집 진입')
+# Record workspace: same shell, stats strip and two divided panes.
+a=shell('안전 기록','오늘의 안전 기록','2027.04.18 · 오전 작업 · A팀 · 작성 담당 이도경',[('record','작성 중'),('pages','참여 9명')])
+a+=rect(76,89,1524,911,'#f4f6f2',0)
+a+=rect(108,120,1460,108,'white',12,LINE)
+for i,(value,label) in enumerate([('9명','오늘 참여 인원'),('8명','확인 완료'),('1명','확인 대기')]):
+ x=108+i*487
+ if i:a+=vline(x,140,208)
+ a+=t(x+32,160,label,14,MUTED)+t(x+32,206,value,32,GREEN if i<2 else '#b4772e',750)
+a+=rect(108,252,980,716,'white',12,LINE)+t(140,300,'작업 전 확인 일지',21,INK,700)+rect(980,280,76,26,'#eef3eb',13)+center(1018,298,'작성 중',12,GREEN,700)+t(140,330,'2027.04.18 / 오전 작업 / A팀',14,MUTED)+line(108,356,1088,356)
+for i,(label,value) in enumerate([('작업 구분','거더 조립 준비'),('공유 사항','장비 이동 동선 확인'),('주요 위험 요인','작업 공간 내 이동 간섭'),('예방 활동','구역 구분 및 작업 전 안내')]):
+ y=402+i*60;a+=t(140,y,label,15,MUTED)+t(330,y,value,16,INK,600)+line(140,y+24,1056,y+24)
+a+=t(140,686,'참여자 확인 이력',17,INK,700)+right(1056,686,'8 / 9명',14,MUTED,600)
+for i,(name,time,status) in enumerate([('이도경','07:42','확인 완료'),('정하준','07:45','확인 완료'),('윤지안','-','확인 대기')]):
+ y=708+i*80;a+=rect(140,y,916,64,'white',10,LINE)+rect(160,y+16,32,32,'#eaf1e6',16)+center(176,y+37,name[0],13,GREEN,700)+t(208,y+38,name,15,INK,600)+t(520,y+38,time,14,MUTED)
+ a+=rect(966,y+20,72,24,'#eef3eb' if i<2 else '#f8efe2',12)+center(1002,y+37,status,11,GREEN if i<2 else '#9a6224',700)
+a+=rect(1112,252,456,330,'white',12,LINE)+t(1144,300,'확인 상태',19,INK,700)+line(1112,326,1568,326)
+for i,(label,state) in enumerate([('작성 담당','확인 완료'),('현장 책임자','검토 대기'),('참여자','8 / 9명 확인')]):
+ y=376+i*66;a+=t(1144,y,label,15,MUTED)+right(1536,y,state,15,'#9a6224' if i==1 else GREEN,650)
+ if i<2:a+=line(1144,y+26,1536,y+26)
+a+=rect(1112,606,456,362,'white',12,LINE)+t(1144,654,'작업 전 체크',19,INK,700)+right(1536,654,'3 / 3',14,MUTED,600)+line(1112,680,1568,680)
+for i,label in enumerate(['보호구 착용 확인','이동 동선 공유','작업 구역 정리']):
+ y=712+i*62;a+=rect(1144,y,26,26,GREEN,7)+icon(1147,y+3,'check','white',20)+t(1186,y+19,label,16,INK,600)
+a+=t(1144,940,'가상 현장 기록 · 실제 운영 자료 아님',12,'#97a094')
+save('tbm-journal',1600,1000,a,'FIELDNOTE 안전 기록과 확인 상태')
 # Equal-size state panels: only the guidance, list emphasis and header change between states.
 def state_panel(mode):
  W,H=900,620;a=rect(0,0,W,H,BG,0)+rect(0,0,W,58,'white',0)+line(0,58,W,58)+t(22,37,'fieldnote',20,'#2e6247',750)+t(150,36,'현장 문서 열람',15,INK,650)

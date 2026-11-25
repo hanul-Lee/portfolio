@@ -567,6 +567,74 @@
   .more-project:hover h3 {
     color: var(--cyan);
   }
+  .other-work-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+  }
+  .other-item {
+    min-width: 0;
+  }
+  .other-visual {
+    position: relative;
+    display: flex;
+    height: 360px;
+    overflow: hidden;
+    background: #1a222b;
+    border-radius: 12px;
+  }
+  .other-visual-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.4s ease;
+  }
+  .other-visual-poster:hover img {
+    transform: scale(1.02);
+  }
+  .other-visual-hint {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #0c0f14cc;
+    color: #e0e7ec;
+    font-size: 11px;
+  }
+  .other-visual-poster:hover .other-visual-hint,
+  .other-visual-poster:focus-visible .other-visual-hint {
+    color: var(--cyan);
+  }
+  .other-visual-banners {
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+  }
+  .other-visual-banners img {
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 12px 32px #00000059;
+  }
+  .other-banner-stack {
+    display: grid;
+    gap: 6px;
+  }
+  .other-copy {
+    padding: 24px 0 0;
+  }
+  .other-copy h3 {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.025em;
+    font-weight: 500;
+    margin: 0;
+  }
   .designer-about {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -767,8 +835,12 @@
     .mobile-visual img {
       height: 280px;
     }
-    .more-project-list {
+    .more-project-list,
+    .other-work-list {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .other-visual {
+      height: 300px;
     }
     .more-project {
       min-height: 130px;
