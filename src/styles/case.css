@@ -2579,7 +2579,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
 }
 /* Reviewed 1024 assets: preserve aspect ratios and allow high-resolution inspection. */
 body[data-project=tbm] .project-visuals figure.portrait .visual-frame,
-body[data-project=psc] .project-visuals figure.portrait .visual-frame {
+body[data-project=measure] .project-visuals figure.portrait .visual-frame {
   aspect-ratio: 390/810;
   max-height: 450px;
 }
@@ -2611,7 +2611,7 @@ body[data-project=dashboard] .project-visuals figure .visual-frame {
 }
 
 body[data-project=intranet] .project-visuals figure .visual-frame,
-body[data-project=psc] .project-visuals figure .visual-frame {
+body[data-project=measure] .project-visuals figure .visual-frame {
   height: 440px;
   max-height: none;
   aspect-ratio: auto;
@@ -2631,7 +2631,7 @@ body[data-project=psc] .project-visuals figure .visual-frame {
     height: 220px;
   }
   body[data-project=intranet] .project-visuals figure .visual-frame,
-  body[data-project=psc] .project-visuals figure .visual-frame {
+  body[data-project=measure] .project-visuals figure .visual-frame {
     height: 380px;
   }
 }
