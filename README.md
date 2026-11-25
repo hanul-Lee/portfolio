@@ -63,7 +63,7 @@ npm run preview
 
 SCSS는 세 파일 모두 빌드하며 공통 CSS와 페이지별 CSS를 HTML에서 직접 연결합니다. `.impact-flow strong`의 기존 선언, 특히 `font-size: clamp(28px, 2vw, 50px);`와 `line-height: 1.1;`은 소스와 생성 CSS에서 모두 보호합니다. `npm test`가 기존 선언 전체를 비교합니다. `npm run build:styles`는 스타일만 갱신합니다.
 
-프로젝트 순서는 현장 안전 기록 → 공통 UI 기준 → 댕냥실록 → TESCOM → SkyAutoNet → 통합 관리 플랫폼 → 비용·인원 ERP → 모바일 인트라넷 → PSC 플랫폼 → 개인 칸반입니다. 변경할 때 `projects.json`의 `projectOrder`·프로젝트 번호와 메인 카드 순서를 함께 확인합니다.
+프로젝트 순서는 현장 안전 기록 → 공통 UI 기준 → 댕냥실록 → TESCOM → SkyAutoNet → 통합 관리 플랫폼 → 비용·인원 ERP → 모바일 인트라넷 → 구조물 측정 플랫폼 → 개인 칸반입니다. 변경할 때 `projects.json`의 `projectOrder`·프로젝트 번호와 메인 카드 순서를 함께 확인합니다.
 
 ## 이미지·글꼴·PDF
 

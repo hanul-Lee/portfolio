@@ -483,25 +483,25 @@
       }
     ]
   },
-  "assets/cases/public-concepts/psc-start.svg": {
-    "src": "assets/cases/public-concepts/psc-start.svg",
+  "assets/cases/public-concepts/measure-start.svg": {
+    "src": "assets/cases/public-concepts/measure-start.svg",
     "width": 390,
     "height": 844,
     "variants": [
       {
-        "src": "assets/cases/public-concepts/psc-start.svg",
+        "src": "assets/cases/public-concepts/measure-start.svg",
         "width": 390,
         "height": 844
       }
     ]
   },
-  "assets/cases/public-concepts/psc-mobile.svg": {
-    "src": "assets/cases/public-concepts/psc-mobile.svg",
+  "assets/cases/public-concepts/measure-mobile.svg": {
+    "src": "assets/cases/public-concepts/measure-mobile.svg",
     "width": 390,
     "height": 844,
     "variants": [
       {
-        "src": "assets/cases/public-concepts/psc-mobile.svg",
+        "src": "assets/cases/public-concepts/measure-mobile.svg",
         "width": 390,
         "height": 844
       }
@@ -543,13 +543,13 @@
       }
     ]
   },
-  "assets/cases/public-concepts/psc-desktop.svg": {
-    "src": "assets/cases/public-concepts/psc-desktop.svg",
+  "assets/cases/public-concepts/measure-desktop.svg": {
+    "src": "assets/cases/public-concepts/measure-desktop.svg",
     "width": 1600,
     "height": 1000,
     "variants": [
       {
-        "src": "assets/cases/public-concepts/psc-desktop.svg",
+        "src": "assets/cases/public-concepts/measure-desktop.svg",
         "width": 1600,
         "height": 1000
       }
@@ -711,13 +711,13 @@
       }
     ]
   },
-  "assets/cases/public-concepts/psc-dropout.svg": {
-    "src": "assets/cases/public-concepts/psc-dropout.svg",
+  "assets/cases/public-concepts/measure-dropout.svg": {
+    "src": "assets/cases/public-concepts/measure-dropout.svg",
     "width": 390,
     "height": 844,
     "variants": [
       {
-        "src": "assets/cases/public-concepts/psc-dropout.svg",
+        "src": "assets/cases/public-concepts/measure-dropout.svg",
         "width": 390,
         "height": 844
       }

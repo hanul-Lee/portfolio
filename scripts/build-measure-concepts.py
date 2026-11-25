@@ -1,4 +1,4 @@
-"""SPANLAB: fictional girder geometry, sensors and telemetry for public portfolio use."""
+"""SPANLAB: fictional structural member geometry, sensors and telemetry for public portfolio use."""
 from pathlib import Path
 from html import escape
 from io import BytesIO
@@ -12,7 +12,7 @@ def t(x,y,s,size=16,fill=WHITE,weight=400,anchor=None):return f'<text x="{x}" y=
 def rule(x,y,w,color=LINE):return f'<path d="M{x} {y}h{w}" stroke="{color}"/>'
 def path(d,color=BLUE,w=1.5,fill='none'):return f'<path d="{d}" stroke="{color}" stroke-width="{w}" fill="{fill}" stroke-linecap="round" stroke-linejoin="round"/>'
 def icon(x,y,name,color=MUTED,size=22):
- paths={'grid':'M3 3H10V10H3ZM14 3H21V10H14ZM3 14H10V21H3ZM14 14H21V21H14Z','girder':'M3 4H21V8H15V16H21V20H3V16H9V8H3Z','sensor':'M5 5H19V19H5ZM9 2V5M15 2V5M9 19V22M15 19V22M2 9H5M2 15H5M19 9H22M19 15H22M9 9H15V15H9Z','chart':'M4 20V12M12 20V5M20 20V9','history':'M4 8C7 0 21 3 21 12C21 22 6 25 3 15M3 3V9H9M12 7V12L16 15','search':'M17 10A7 7 0 1 1 3 10A7 7 0 1 1 17 10M15 15L21 21','chevron':'M8 10L12 14L16 10','back':'M15 4L7 12L15 20','check':'M5 12L10 17L20 6','bell':'M5 17V10C5 1 19 1 19 10V17H5M9 21H15'}
+ paths={'grid':'M3 3H10V10H3ZM14 3H21V10H14ZM3 14H10V21H3ZM14 14H21V21H14Z','beam':'M3 4H21V8H15V16H21V20H3V16H9V8H3Z','sensor':'M5 5H19V19H5ZM9 2V5M15 2V5M9 19V22M15 19V22M2 9H5M2 15H5M19 9H22M19 15H22M9 9H15V15H9Z','chart':'M4 20V12M12 20V5M20 20V9','history':'M4 8C7 0 21 3 21 12C21 22 6 25 3 15M3 3V9H9M12 7V12L16 15','search':'M17 10A7 7 0 1 1 3 10A7 7 0 1 1 17 10M15 15L21 21','chevron':'M8 10L12 14L16 10','back':'M15 4L7 12L15 20','check':'M5 12L10 17L20 6','bell':'M5 17V10C5 1 19 1 19 10V17H5M9 21H15'}
  return f'<g transform="translate({x} {y}) scale({size/24})">{path(paths[name],color,1.7)}</g>'
 def badge(x,y,label,w=84):return rect(x,y,w,27,'#223852',9)+t(x+w/2,y+19,label,13,'#b8d5ff',600,'middle')
 def defs():return '''<defs><clipPath id="scene-cut"><rect x="252" y="204" width="930" height="482" rx="22"/></clipPath><radialGradient id="scene" cx=".55" cy=".44" r=".8"><stop stop-color="#243b5c"/><stop offset="1" stop-color="#101a29"/></radialGradient><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#aec6e6"/><stop offset=".5" stop-color="#7699c8"/><stop offset="1" stop-color="#44658f"/></linearGradient><linearGradient id="web" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5d80b0"/><stop offset="1" stop-color="#304a6e"/></linearGradient><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#668ff6" stop-opacity=".35"/><stop offset="1" stop-color="#668ff6" stop-opacity="0"/></linearGradient></defs>'''
@@ -23,7 +23,7 @@ def box(x0,x1,y0,y1,z0,z1,top='url(#metal)',side='url(#web)',end='#587ca9'):
  p=point
  return polygon([p(x0,y1,z0),p(x1,y1,z0),p(x1,y1,z1),p(x0,y1,z1)],side)+polygon([p(x0,y0,z0),p(x0,y1,z0),p(x0,y1,z1),p(x0,y0,z1)],end)+polygon([p(x0,y0,z1),p(x1,y0,z1),p(x1,y1,z1),p(x0,y1,z1)],top)
 def scene():
- a='<g clip-path="url(#scene-cut)">'+rect(252,204,930,482,'url(#scene)',22,LINE)+t(278,241,'Q-24 거더 · 센서 위치',20,WHITE,650)+badge(1038,219,'3D 위치도',116)
+ a='<g clip-path="url(#scene-cut)">'+rect(252,204,930,482,'url(#scene)',22,LINE)+t(278,241,'Q-24 부재 · 센서 위치',20,WHITE,650)+badge(1038,219,'3D 위치도',116)
  # A newly constructed I-section, not a scan, CAD model or real site image.
  for x in range(-1,13):
   p,q=point(x,-3,-.55),point(x,3,-.55);a+=path(f'M{p[0]} {p[1]}L{q[0]} {q[1]}','#30445e',.7)
@@ -37,17 +37,17 @@ def scene():
   if not active:a+=t(xx,yy+31,'C-0'+str(i+1),13,'#d3e7ff',600,'middle')
   else:
    a+=path(f'M{xx} {yy-12}V309H{xx+44}',BLUE_LIGHT,1)+rect(xx+44,278,166,64,'#1a2e48',14,'#5377a2')+t(xx+59,303,'C-02 · 선택됨',13,'#b6cce8')+t(xx+59,328,'+2.7 mm',21,'white',700)
- a+=badge(278,273,'연결 4 / 4',108)+rect(270,638,896,32,'#111e30',8)+t(278,657,'임의 제작한 거더 형상 · 실제 측정 및 안전 판정 자료가 아닙니다.',13,'#b0c4dd')
+ a+=badge(278,273,'연결 4 / 4',108)+rect(270,638,896,32,'#111e30',8)+t(278,657,'임의 제작한 부재 형상 · 실제 측정 및 안전 판정 자료가 아닙니다.',13,'#b0c4dd')
  return a+'</g>'
 # Desktop: spatial context first, live channels beside it, history below.
-a=defs()+rect(0,0,1600,1000,BG,0)+rect(16,16,212,968,'#111a28',24,LINE)+icon(39,45,'girder',BLUE,27)+t(78,66,'spanlab',25,WHITE,700)+t(40,110,'FIELD WORKSPACE',11,MUTED,600)+rule(40,136,164)
-for i,(label,kind) in enumerate([('현장 현황','grid'),('거더 분석','girder'),('측정 이력','history'),('센서 관리','sensor')]):
+a=defs()+rect(0,0,1600,1000,BG,0)+rect(16,16,212,968,'#111a28',24,LINE)+icon(39,45,'beam',BLUE,27)+t(78,66,'spanlab',25,WHITE,700)+t(40,110,'FIELD WORKSPACE',11,MUTED,600)+rule(40,136,164)
+for i,(label,kind) in enumerate([('현장 현황','grid'),('부재 분석','beam'),('측정 이력','history'),('센서 관리','sensor')]):
  y=170+i*61
  if i==1:a+=rect(30,y-10,184,46,'#243955',14)+rect(208,y+1,3,23,BLUE,1)
  a+=icon(46,y,kind,WHITE if i==1 else MUTED,20)+t(80,y+17,label,16,WHITE if i==1 else MUTED,600 if i==1 else 400)
 a+=t(40,899,'모래빛 제작장',15,WHITE,600)+t(40,926,'공개용 가상 워크스페이스',12,MUTED)
-a+=t(252,58,'현장 / 거더 분석',16,MUTED)+rect(1072,27,305,43,PANEL,13,LINE)+icon(1087,38,'search',MUTED,19)+t(1118,54,'거더·세션 검색',14,MUTED)+rect(1394,27,174,43,PANEL,13,LINE)+t(1410,54,'이도경 · 품질관리',14,WHITE,500)
-a+=t(252,124,'거더 측정 모니터',32,WHITE,700)+t(252,158,'모래빛 제작장 · B구역  /  2027.09.16  /  가상 측정 세션',16,MUTED)+badge(1425,105,'DEMO DATA',143)
+a+=t(252,58,'현장 / 부재 분석',16,MUTED)+rect(1072,27,305,43,PANEL,13,LINE)+icon(1087,38,'search',MUTED,19)+t(1118,54,'부재·세션 검색',14,MUTED)+rect(1394,27,174,43,PANEL,13,LINE)+t(1410,54,'이도경 · 품질관리',14,WHITE,500)
+a+=t(252,124,'부재 측정 모니터',32,WHITE,700)+t(252,158,'모래빛 제작장 · B구역  /  2027.09.16  /  가상 측정 세션',16,MUTED)+badge(1425,105,'DEMO DATA',143)
 a+=scene()+rect(1206,204,362,482,PANEL,22,LINE)+t(1230,243,'측정 세션',20,WHITE,650)+badge(1454,220,'수집 중',90)+t(1230,288,'Q-24',36,WHITE,700)+t(1230,319,'2차 측정 · SIM-318',15,MUTED)+rule(1230,341,314)
 for x,num,label in [(1230,'04','연결 채널'),(1394,'76%','수집 진행')]:a+=t(x,380,num,29,WHITE,700)+t(x,408,label,13,MUTED)
 a+=t(1230,451,'채널',13,MUTED)+t(1544,451,'변위 예시',13,MUTED,400,'end')
@@ -61,7 +61,7 @@ a+=rect(252,710,846,270,PANEL,22,LINE)+t(278,750,'변위 프로파일',20,WHITE,
 for y,val in [(792,'4'),(844,'2'),(896,'0')]:a+=rule(310,y,750,'#26364b')+t(294,y+5,val,12,MUTED,400,'end')
 a+=path('M310 884C380 877 413 834 479 845S585 784 650 803S733 865 793 834S928 802 1060 858L1060 896H310Z','none',0,'url(#area)')
 a+=path('M310 884C380 877 413 834 479 845S585 784 650 803S733 865 793 834S928 802 1060 858',BLUE,3)
-a+=t(310,937,'P-01',12,MUTED)+t(680,937,'거더 길이 방향',13,MUTED,400,'middle')+t(1060,937,'P-08',12,MUTED,400,'end')
+a+=t(310,937,'P-01',12,MUTED)+t(680,937,'부재 길이 방향',13,MUTED,400,'middle')+t(1060,937,'P-08',12,MUTED,400,'end')
 a+=rect(1122,710,446,270,PANEL,22,LINE)+t(1146,750,'측정 이력',20,WHITE,650)+t(1544,749,'전체 보기',13,BLUE,500,'end')
 for i,(session,stamp,state) in enumerate([('SIM-318','09.16 10:24','수집 중'),('SIM-317','09.16 09:40','수집 완료'),('SIM-316','09.15 16:20','수집 완료')]):
  y=800+i*59;a+=t(1146,y,session,16,WHITE,600)+t(1146,y+23,stamp,13,MUTED)+badge(1430,y-12,state,114)
@@ -73,7 +73,7 @@ def mobile_base(title,sub):
  return s
 def cta(label):return rect(24,746,342,56,'#4b7edb',14)+t(195,782,label,17,'white',650,'middle')+rect(135,833,120,4,'#e5ecf8',2)
 start=mobile_base('측정 준비','연결 상태를 확인해요')+t(24,175,'모래빛 제작장 · B구역',14,MUTED)
-start+=rect(24,202,342,102,PANEL,20,LINE)+icon(43,225,'girder',BLUE,31)+t(94,236,'Q-24 거더',22,WHITE,650)+t(94,267,'2차 측정 · 4개 채널',14,MUTED)
+start+=rect(24,202,342,102,PANEL,20,LINE)+icon(43,225,'beam',BLUE,31)+t(94,236,'Q-24 부재',22,WHITE,650)+t(94,267,'2차 측정 · 4개 채널',14,MUTED)
 start+=t(24,348,'준비 항목',19,WHITE,650)
 for i,(title,sub) in enumerate([('측정 대상 선택','Q-24 · 모래빛 제작장'),('센서 연결','4개 채널 연결 완료'),('기준점 설정','기준점 2개 확인 완료')]):
  y=374+i*93;start+=rect(24,y,342,77,PANEL,17,LINE)+rect(40,y+21,32,32,'#243955',10)+icon(47,y+28,'check',BLUE,18)+t(87,y+31,title,17,WHITE,600)+t(87,y+56,sub,14,MUTED)
@@ -106,8 +106,8 @@ for n in font['name'].names:
 font.flavor='woff2';b=BytesIO();font.save(b);data=base64.b64encode(b.getvalue()).decode();style=f"<style>@font-face{{font-family:'Span SUIT';font-style:normal;font-weight:100 900;src:url(data:font/woff2;base64,{data}) format('woff2');}}text{{font-family:'Span SUIT',sans-serif;}}</style>"
 def save(name,body,label,w,h):
  (OUT/(name+'.svg')).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{label}"><title>{label} · 공개용 디자인 변경 · 모든 화면 데이터는 가상입니다</title>{style}{body}</svg>',encoding='utf-8')
-save('psc-desktop',a,'SPANLAB 거더·센서 위치와 측정 현황',1600,1000)
-save('psc-start',start,'SPANLAB 모바일 측정 준비',390,844)
-save('psc-mobile',mobile,'SPANLAB 모바일 측정 상태',390,844)
-save('psc-dropout',drop,'SPANLAB 채널 누락 상태 개선안',390,844)
-print('Generated three fictional SPANLAB girder monitoring screens')
+save('measure-desktop',a,'SPANLAB 부재·센서 위치와 측정 현황',1600,1000)
+save('measure-start',start,'SPANLAB 모바일 측정 준비',390,844)
+save('measure-mobile',mobile,'SPANLAB 모바일 측정 상태',390,844)
+save('measure-dropout',drop,'SPANLAB 채널 누락 상태 개선안',390,844)
+print('Generated three fictional SPANLAB structural monitoring screens')

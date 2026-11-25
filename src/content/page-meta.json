@@ -85,7 +85,7 @@
     "outcomesStyle": "border-top: none; border-bottom: none",
     "ogTitle": "카드 이동·작업 생성 개인 칸반 프로토타입 | 이한울 · UX/UI 디자이너"
   },
-  "psc": {
+  "measure": {
     "description": "현장 측정과 사무실 관리를 웹·앱으로 연결",
     "ogDescription": "현장 측정과 사무실 관리를 웹·앱으로 연결",
     "actions": [
@@ -103,7 +103,7 @@
       }
     ],
     "outcomesStyle": "border-top:none;border-bottom:none",
-    "ogTitle": "PSC 거더 관리 플랫폼 | 이한울 · UX/UI 디자이너"
+    "ogTitle": "구조물 현장 측정·관리 플랫폼 | 이한울 · UX/UI 디자이너"
   },
   "intranet": {
     "description": "회의실 현황에서 예약으로, 문서 상태에서 근태 신청으로",
