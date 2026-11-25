@@ -1,0 +1,762 @@
+{
+  "assets/cases/1017/platform-menu-options.png": {
+    "src": "assets/cases/1017/platform-menu-options-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/cases/1017/platform-menu-options-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-options-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-options-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-options-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/cases/1017/platform-menu.png": {
+    "src": "assets/cases/1017/platform-menu-2560w.webp",
+    "width": 2560,
+    "height": 815,
+    "variants": [
+      {
+        "src": "assets/cases/1017/platform-menu-480w.webp",
+        "width": 480,
+        "height": 153
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-960w.webp",
+        "width": 960,
+        "height": 306
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-1920w.webp",
+        "width": 1920,
+        "height": 611
+      },
+      {
+        "src": "assets/cases/1017/platform-menu-2560w.webp",
+        "width": 2560,
+        "height": 815
+      }
+    ]
+  },
+  "assets/cases/1017/platform-video.png": {
+    "src": "assets/cases/1017/platform-video-2294w.webp",
+    "width": 2294,
+    "height": 1072,
+    "variants": [
+      {
+        "src": "assets/cases/1017/platform-video-480w.webp",
+        "width": 480,
+        "height": 224
+      },
+      {
+        "src": "assets/cases/1017/platform-video-960w.webp",
+        "width": 960,
+        "height": 449
+      },
+      {
+        "src": "assets/cases/1017/platform-video-1920w.webp",
+        "width": 1920,
+        "height": 897
+      },
+      {
+        "src": "assets/cases/1017/platform-video-2294w.webp",
+        "width": 2294,
+        "height": 1072
+      }
+    ]
+  },
+  "assets/cases/20261024/ui-colors-reviewed.webp": {
+    "src": "assets/cases/20261024/ui-colors-reviewed-2560w.webp",
+    "width": 2560,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "assets/cases/20261024/ui-colors-reviewed-480w.webp",
+        "width": 480,
+        "height": 300
+      },
+      {
+        "src": "assets/cases/20261024/ui-colors-reviewed-960w.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "assets/cases/20261024/ui-colors-reviewed-1920w.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      {
+        "src": "assets/cases/20261024/ui-colors-reviewed-2560w.webp",
+        "width": 2560,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/cases/20261024/ui-desktop-cover.webp": {
+    "src": "assets/cases/20261024/ui-desktop-cover-2528w.webp",
+    "width": 2528,
+    "height": 1684,
+    "variants": [
+      {
+        "src": "assets/cases/20261024/ui-desktop-cover-480w.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "assets/cases/20261024/ui-desktop-cover-960w.webp",
+        "width": 960,
+        "height": 639
+      },
+      {
+        "src": "assets/cases/20261024/ui-desktop-cover-1920w.webp",
+        "width": 1920,
+        "height": 1279
+      },
+      {
+        "src": "assets/cases/20261024/ui-desktop-cover-2528w.webp",
+        "width": 2528,
+        "height": 1684
+      }
+    ]
+  },
+  "assets/cases/20261024/ui-input-reviewed.webp": {
+    "src": "assets/cases/20261024/ui-input-reviewed-2560w.webp",
+    "width": 2560,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "assets/cases/20261024/ui-input-reviewed-480w.webp",
+        "width": 480,
+        "height": 300
+      },
+      {
+        "src": "assets/cases/20261024/ui-input-reviewed-960w.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "assets/cases/20261024/ui-input-reviewed-1920w.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      {
+        "src": "assets/cases/20261024/ui-input-reviewed-2560w.webp",
+        "width": 2560,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/cases/20261024/ui-search-reviewed.webp": {
+    "src": "assets/cases/20261024/ui-search-reviewed-2560w.webp",
+    "width": 2560,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "assets/cases/20261024/ui-search-reviewed-480w.webp",
+        "width": 480,
+        "height": 300
+      },
+      {
+        "src": "assets/cases/20261024/ui-search-reviewed-960w.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "assets/cases/20261024/ui-search-reviewed-1920w.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      {
+        "src": "assets/cases/20261024/ui-search-reviewed-2560w.webp",
+        "width": 2560,
+        "height": 1600
+      }
+    ]
+  },
+  "assets/cases/after-pet.png": {
+    "src": "assets/cases/after-pet-657w.webp",
+    "width": 657,
+    "height": 1366,
+    "variants": [
+      {
+        "src": "assets/cases/after-pet-480w.webp",
+        "width": 480,
+        "height": 998
+      },
+      {
+        "src": "assets/cases/after-pet-657w.webp",
+        "width": 657,
+        "height": 1366
+      }
+    ]
+  },
+  "assets/cases/before-pet.png": {
+    "src": "assets/cases/before-pet-657w.webp",
+    "width": 657,
+    "height": 1366,
+    "variants": [
+      {
+        "src": "assets/cases/before-pet-480w.webp",
+        "width": 480,
+        "height": 998
+      },
+      {
+        "src": "assets/cases/before-pet-657w.webp",
+        "width": 657,
+        "height": 1366
+      }
+    ]
+  },
+  "assets/cases/pet-6.jpg": {
+    "src": "assets/cases/pet-6-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/cases/pet-6-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/cases/pet-6-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/cases/pet-6-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/cases/pet-6-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/cases/pet-9.png": {
+    "src": "assets/cases/pet-9-646w.webp",
+    "width": 646,
+    "height": 1344,
+    "variants": [
+      {
+        "src": "assets/cases/pet-9-480w.webp",
+        "width": 480,
+        "height": 999
+      },
+      {
+        "src": "assets/cases/pet-9-646w.webp",
+        "width": 646,
+        "height": 1344
+      }
+    ]
+  },
+  "assets/cases/platform-9.png": {
+    "src": "assets/cases/platform-9-2560w.webp",
+    "width": 2560,
+    "height": 1309,
+    "variants": [
+      {
+        "src": "assets/cases/platform-9-480w.webp",
+        "width": 480,
+        "height": 245
+      },
+      {
+        "src": "assets/cases/platform-9-960w.webp",
+        "width": 960,
+        "height": 491
+      },
+      {
+        "src": "assets/cases/platform-9-1920w.webp",
+        "width": 1920,
+        "height": 982
+      },
+      {
+        "src": "assets/cases/platform-9-2560w.webp",
+        "width": 2560,
+        "height": 1309
+      }
+    ]
+  },
+  "assets/hero-data-flow-v2.png": {
+    "src": "assets/hero-data-flow-v2-1672w.webp",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "assets/hero-data-flow-v2-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/hero-data-flow-v2-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/hero-data-flow-v2-1672w.webp",
+        "width": 1672,
+        "height": 941
+      }
+    ]
+  },
+  "assets/pp/skyautonet/skyautonet05.jpg": {
+    "src": "assets/pp/skyautonet/skyautonet05-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/pp/skyautonet/skyautonet05-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet05-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet05-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet05-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/pp/skyautonet/skyautonet06.jpg": {
+    "src": "assets/pp/skyautonet/skyautonet06-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/pp/skyautonet/skyautonet06-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet06-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet06-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/pp/skyautonet/skyautonet06-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/pp/tescom/38.jpg": {
+    "src": "assets/pp/tescom/38-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/pp/tescom/38-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/pp/tescom/38-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/pp/tescom/38-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/pp/tescom/38-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/pp/tescom/39.jpg": {
+    "src": "assets/pp/tescom/39-2560w.webp",
+    "width": 2560,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "assets/pp/tescom/39-480w.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "assets/pp/tescom/39-960w.webp",
+        "width": 960,
+        "height": 540
+      },
+      {
+        "src": "assets/pp/tescom/39-1920w.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/pp/tescom/39-2560w.webp",
+        "width": 2560,
+        "height": 1440
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-journal.svg": {
+    "src": "assets/cases/public-concepts/tbm-journal.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-journal.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-record.svg": {
+    "src": "assets/cases/public-concepts/tbm-record.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-record.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-profile.svg": {
+    "src": "assets/cases/public-concepts/tbm-profile.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-profile.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-documents.svg": {
+    "src": "assets/cases/public-concepts/tbm-documents.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-documents.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/intranet-request.svg": {
+    "src": "assets/cases/public-concepts/intranet-request.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/intranet-request.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/psc-start.svg": {
+    "src": "assets/cases/public-concepts/psc-start.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/psc-start.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/psc-mobile.svg": {
+    "src": "assets/cases/public-concepts/psc-mobile.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/psc-mobile.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-home.svg": {
+    "src": "assets/cases/public-concepts/tbm-home.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-home.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/intranet-booking.svg": {
+    "src": "assets/cases/public-concepts/intranet-booking.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/intranet-booking.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-saved.svg": {
+    "src": "assets/cases/public-concepts/tbm-saved.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-saved.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/psc-desktop.svg": {
+    "src": "assets/cases/public-concepts/psc-desktop.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/psc-desktop.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/intranet-home.svg": {
+    "src": "assets/cases/public-concepts/intranet-home.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/intranet-home.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/intranet-overview.svg": {
+    "src": "assets/cases/public-concepts/intranet-overview.svg",
+    "width": 1440,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/intranet-overview.svg",
+        "width": 1440,
+        "height": 1080
+      }
+    ]
+  },
+  "assets/cases/public-concepts/erp-overview.svg": {
+    "src": "assets/cases/public-concepts/erp-overview.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/erp-overview.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/erp-detail.svg": {
+    "src": "assets/cases/public-concepts/erp-detail.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/erp-detail.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/erp-structure.svg": {
+    "src": "assets/cases/public-concepts/erp-structure.svg",
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/erp-structure.svg",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "assets/cases/public-concepts/erp-scope.svg": {
+    "src": "assets/cases/public-concepts/erp-scope.svg",
+    "width": 900,
+    "height": 1120,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/erp-scope.svg",
+        "width": 900,
+        "height": 1120
+      }
+    ]
+  },
+  "assets/cases/public-concepts/erp-overtime.svg": {
+    "src": "assets/cases/public-concepts/erp-overtime.svg",
+    "width": 1200,
+    "height": 760,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/erp-overtime.svg",
+        "width": 1200,
+        "height": 760
+      }
+    ]
+  },
+  "assets/cases/public-concepts/kanban-board.svg": {
+    "src": "assets/cases/public-concepts/kanban-board.svg",
+    "width": 1600,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/kanban-board.svg",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "assets/cases/public-concepts/kanban-create.svg": {
+    "src": "assets/cases/public-concepts/kanban-create.svg",
+    "width": 900,
+    "height": 1120,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/kanban-create.svg",
+        "width": 900,
+        "height": 1120
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-state-empty.svg": {
+    "src": "assets/cases/public-concepts/tbm-state-empty.svg",
+    "width": 900,
+    "height": 620,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-state-empty.svg",
+        "width": 900,
+        "height": 620
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-state-view.svg": {
+    "src": "assets/cases/public-concepts/tbm-state-view.svg",
+    "width": 900,
+    "height": 620,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-state-view.svg",
+        "width": 900,
+        "height": 620
+      }
+    ]
+  },
+  "assets/cases/public-concepts/tbm-state-edit.svg": {
+    "src": "assets/cases/public-concepts/tbm-state-edit.svg",
+    "width": 900,
+    "height": 620,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/tbm-state-edit.svg",
+        "width": 900,
+        "height": 620
+      }
+    ]
+  },
+  "assets/cases/public-concepts/intranet-conflict.svg": {
+    "src": "assets/cases/public-concepts/intranet-conflict.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/intranet-conflict.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/psc-dropout.svg": {
+    "src": "assets/cases/public-concepts/psc-dropout.svg",
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/psc-dropout.svg",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "assets/cases/public-concepts/kanban-move-before.svg": {
+    "src": "assets/cases/public-concepts/kanban-move-before.svg",
+    "width": 900,
+    "height": 660,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/kanban-move-before.svg",
+        "width": 900,
+        "height": 660
+      }
+    ]
+  },
+  "assets/cases/public-concepts/kanban-move-drag.svg": {
+    "src": "assets/cases/public-concepts/kanban-move-drag.svg",
+    "width": 900,
+    "height": 660,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/kanban-move-drag.svg",
+        "width": 900,
+        "height": 660
+      }
+    ]
+  },
+  "assets/cases/public-concepts/kanban-move-after.svg": {
+    "src": "assets/cases/public-concepts/kanban-move-after.svg",
+    "width": 900,
+    "height": 660,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/kanban-move-after.svg",
+        "width": 900,
+        "height": 660
+      }
+    ]
+  }
+}
