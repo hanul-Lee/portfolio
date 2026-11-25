@@ -57,6 +57,7 @@ jobs:
         run: |
           npm run test:static
           npm run test:layout
+          npm run test:intranet
       - name: Test overlap detection, image viewer and keyboard flow
         run: |
           npm run test:overlap

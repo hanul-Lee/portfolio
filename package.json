@@ -23,7 +23,8 @@
     "test:viewer": "node tests/viewer.cjs",
     "test:overlap": "node tests/overlap-detector.cjs",
     "check:build": "node scripts/check-build.cjs",
-    "test:security": "node scripts/security-audit.cjs && node tests/server-security.cjs && node tests/browser-security.cjs"
+    "test:security": "node scripts/security-audit.cjs && node tests/server-security.cjs && node tests/browser-security.cjs",
+    "test:intranet": "node --test examples/intranet-day/tests/demo-store.test.js && node tests/intranet-day.cjs"
   },
   "engines": {
     "node": ">=22"

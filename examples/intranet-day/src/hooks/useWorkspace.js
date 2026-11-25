@@ -1,0 +1,2 @@
+import {useState} from 'react';import {readDemo,mutateDemo} from '../demo-store';
+export default function useWorkspace(){const [data,setData]=useState(readDemo);const [error,setError]=useState('');return {data,loading:false,busy:false,error,refresh:()=>setData(readDemo()),mutate:async(endpoint,input)=>{try{setData(mutateDemo(endpoint,input));setError('');return true}catch(e){setError(e.message);return false}}}}

@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+const store=new Map();globalThis.localStorage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)};
+const {readDemo,mutateDemo,resetDemo,members}=await import('../src/demo-store.js');
+assert.equal(readDemo().members.length,12);assert.ok(readDemo().members.every(m=>m.email.endsWith('@example.com')));
+mutateDemo('attendance',{action:'checkin'});assert.ok(Object.values(readDemo().records)[0].in);assert.throws(()=>mutateDemo('attendance',{action:'checkin'}));
+const count=readDemo().posts.length;mutateDemo('posts',{title:'체험 게시글',body:'가상 내용',category:'자유게시판'});assert.equal(readDemo().posts.length,count+1);assert.throws(()=>mutateDemo('posts',{title:' ',body:'내용'}));
+const draft={template:'근태신청서',title:'테스트 신청',requestType:'연차(휴가)',reason:'개발 연습',startDate:'2027-01-01',endDate:'2027-01-02',approverIds:[members[1].id],referenceIds:[],status:'pending'};
+mutateDemo('approvals',draft);assert.equal(readDemo().approvals[0].title,'테스트 신청');assert.throws(()=>mutateDemo('approvals',{...draft,endDate:'2026-01-01'}));
+mutateDemo('decision',{id:'approval0',action:'approve'});assert.equal(readDemo().approvals.find(d=>d.id==='approval0').status,'approved');assert.throws(()=>mutateDemo('decision',{id:'approval1',action:'approve'}));
+resetDemo();assert.equal(readDemo().posts.length,count);assert.equal(Object.keys(readDemo().records).length,0);console.log('PASS: fictional records, attendance, posts, approvals, decision ownership, persistence and reset');

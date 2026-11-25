@@ -1,0 +1,31 @@
+@use './fonts';
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Pretendard', 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+#root {
+  min-height: 100vh;
+}
+*:focus,
+*:focus-visible {
+  outline: none;
+}
+small,
+sup {
+  font-size: 12px;
+}
+.tabler-icon {
+  vertical-align: middle;
+  flex-shrink: 0;
+}

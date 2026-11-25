@@ -1,0 +1,461 @@
+.approval-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) 220px;
+  gap: 14px;
+  background: #f8f9fb;
+  padding: 12px;
+  border-radius: 10px;
+}
+.approval-sidebar {
+  h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  h3 {
+    color: #5e6573;
+    font-size: 12px;
+    margin-top: 18px;
+  }
+  button {
+    width: 100%;
+    margin-bottom: 9px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    border: 0;
+    background: transparent;
+  }
+  .primary {
+    justify-content: center;
+    padding: 10px;
+  }
+  .selected {
+    background: #e6eef9;
+    color: #305c9e;
+  }
+}
+.approval-main {
+  min-width: 0;
+  .portal-page-heading {
+    margin: 0 0 12px;
+    input {
+      width: 240px;
+    }
+  }
+  .dash-panel {
+    margin-bottom: 13px;
+  }
+}
+.approval-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 13px;
+  button {
+    text-align: left;
+    padding: 12px;
+    background: white;
+    span {
+      display: block;
+      color: #5a6475;
+    }
+    strong {
+      display: block;
+      font-size: 29px;
+      margin-top: 7px;
+    }
+  }
+}
+.template-list {
+  button {
+    display: grid;
+    grid-template-columns: 190px 1fr 20px;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #dfe4ec;
+    padding: 12px;
+    strong {
+      font-size: 12px;
+    }
+    span {
+      font-size: 12px;
+      color: #5b6476;
+    }
+  }
+}
+.approval-document-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 9px;
+  h3 {
+    font-size: 14px;
+    margin: 4px 0 10px;
+  }
+  p {
+    color: #5f6776;
+    font-size: 12px;
+    margin: 5px 0;
+    overflow-wrap: anywhere;
+  }
+}
+.approval-mini-line {
+  display: flex;
+  gap: 16px;
+  color: #305c9e;
+  span {
+    text-align: center;
+    font-size: 22px;
+    small {
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+.approval-recent {
+  border-left: 1px solid #dfe4ec;
+  padding-left: 15px;
+  h3 {
+    font-size: 13px;
+  }
+  button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    background: #eaf0f8;
+    margin: 12px 0;
+  }
+}
+.approval-compose {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 16px;
+  padding: 8px;
+  .dash-panel {
+    margin-bottom: 12px;
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+}
+.approval-compose-main {
+  min-width: 0;
+  .portal-page-heading {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .portal-page-heading {
+    margin-top: 0;
+    h1 {
+      font-size: 23px;
+    }
+  }
+}
+.approval-line-cards {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  > div {
+    min-width: 155px;
+    padding: 11px;
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    &.approver {
+      background: #f0f6ff;
+      border-color: #305c9e;
+    }
+    small,
+    span {
+      color: #5d6575;
+      font-size: 12px;
+    }
+  }
+}
+.line-editor {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  > div {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    max-width: 100%;
+    flex: 1 1 360px;
+    .employee-select {
+      flex: 1;
+    }
+  }
+  > button {
+    height: 37px;
+  }
+}
+.employee-select {
+  min-width: 0;
+  label {
+    gap: 5px;
+  }
+  input,
+  select {
+    font-size: 12px;
+  }
+}
+.request-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  gap: 12px;
+  margin-top: 13px;
+  button {
+    padding: 13px 7px;
+    font-size: 12px;
+    span {
+      display: block;
+      color: #5f6571;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+    &.selected {
+      background: #eef5ff;
+      color: #2260c9;
+      border-color: #2463d0;
+      span {
+        color: #2260c9;
+      }
+    }
+  }
+}
+.approval-timeline {
+  padding: 13px 10px;
+  border-left: 1px solid #dfe4ec;
+  h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  article {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 23px;
+    small {
+      display: block;
+      font-size: 12px;
+      color: #5e6573;
+      margin-top: 7px;
+    }
+    p {
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+    .approval-comment {
+      color: #2260c9;
+      font-weight: 600;
+      line-height: 1.6;
+      &.rejected {
+        color: #b33a3a;
+      }
+    }
+    .avatar {
+      width: 42px;
+      height: 42px;
+      font-size: 18px;
+      &.approved {
+        background: #ffb86a;
+      }
+      &.rejected {
+        background: #b33a3a;
+        color: #fff;
+      }
+    }
+  }
+}
+.attachment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-wrap: anywhere;
+  margin-top: 10px;
+  color: #305c9e;
+  a {
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+}
+.approval-hint {
+  color: #5e6573;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.approval-summary {
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfe4ec;
+  overflow-wrap: anywhere;
+  dl {
+    margin: 16px 0 0;
+    font-size: 12px;
+    div {
+      margin-top: 12px;
+    }
+    dt {
+      color: #5e6573;
+      margin-bottom: 4px;
+    }
+    dd {
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+}
+.approval-submit-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 -4px 16px #2532470d;
+  .approval-submit-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .approval-hint,
+  .modal-actions {
+    margin: 0;
+  }
+  button {
+    min-height: 42px;
+    min-width: 100px;
+  }
+}
+.approval-compose .request-types button {
+  min-height: 88px;
+}
+.approval-compose .portal-page-heading > div > h1 {
+  margin: 0;
+}
+.status-pill.approved {
+  background: #e6f6ee;
+  color: #20744d;
+}
+.status-pill.rejected {
+  background: #fff0f0;
+  color: #b33a3a;
+}
+@media (max-width: 1200px) {
+  .approval-layout {
+    grid-template-columns: 165px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .approval-recent {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-left: 0;
+    gap: 12px;
+    button {
+      width: auto;
+    }
+  }
+  .approval-compose {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .approval-timeline {
+    border-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    h3 {
+      width: 100%;
+      margin: 0;
+    }
+    article {
+      margin-bottom: 0;
+    }
+  }
+}
+@media (max-width: 760px) {
+  .approval-layout {
+    display: block;
+    padding: 10px;
+  }
+  .approval-sidebar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    h2,
+    h3 {
+      display: none;
+    }
+    button {
+      width: auto;
+      font-size: 12px;
+    }
+    .primary {
+      padding: 10px;
+    }
+  }
+  .approval-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .approval-main .portal-page-heading {
+    flex-wrap: wrap;
+    gap: 10px;
+    input {
+      width: 100%;
+    }
+  }
+  .template-list button {
+    grid-template-columns: 1fr 20px;
+    gap: 5px;
+    span {
+      grid-column: 1;
+    }
+    b {
+      grid-column: 2;
+      grid-row: 1/3;
+    }
+  }
+  .approval-document-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .approval-line-cards > div {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 6px;
+    strong {
+      font-size: 12px;
+    }
+  }
+  .approval-compose .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .request-types {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .approval-recent {
+    padding-left: 0;
+  }
+}

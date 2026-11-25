@@ -51,9 +51,21 @@ function copyAssets(){
   fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);
  }
 }
+
+function copyIntranetDemo(){
+ const source=path.join(assets,'demos/intranet-day');
+ const visit=(dir)=>{for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
+  const file=path.join(dir,entry.name);if(entry.isSymbolicLink())throw Error('Symlink in demo');
+  if(entry.isDirectory()){visit(file);continue;}
+  if(!/\.(?:html|js|css|svg)$/.test(entry.name))throw Error('Unexpected demo asset: '+entry.name);
+  const target=path.join(dist,'assets/demos/intranet-day',path.relative(source,file));fs.mkdirSync(path.dirname(target),{recursive:true});
+  if(entry.name.endsWith('.html'))fs.writeFileSync(target,addSecurityMeta(fs.readFileSync(file,'utf8')));else fs.copyFileSync(file,target);
+ }};visit(source);
+}
+
 (async()=>{
  fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(dist,{recursive:true});fs.mkdirSync(build,{recursive:true});
- require('./build-styles.cjs')();copyAssets();
+ require('./build-styles.cjs')();copyAssets();copyIntranetDemo();
  for(const file of fs.readdirSync(path.join(src,'scripts')).filter(f=>f.endsWith('.js')))fs.copyFileSync(path.join(src,'scripts',file),path.join(dist,file));
  const files=Object.keys(content.projects).sort().map(slug=>'project-'+slug+'.html');
  await withChrome(async({send,evaluate})=>{
@@ -76,5 +88,5 @@ function copyAssets(){
  fs.writeFileSync(path.join(dist,'404.html'),metadata(notFound,'404.html'));
  fs.writeFileSync(path.join(dist,'.nojekyll'),'');
  require('./build-fonts.cjs')();
- console.log('Built dist/: home, 10 project pages from one template, public assets, styles, scripts, fonts and metadata.');
+ console.log(`Built dist/: home, ${files.length} project pages from one template, public assets, styles, scripts, fonts and metadata.`);
 })().catch(e=>{console.error(e);process.exitCode=1;});

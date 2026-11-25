@@ -1,6 +1,8 @@
 /* Uses the same server and Playwright setup as browser-audit.cjs. */
 const assert = require('node:assert/strict');
 const {withSite,withBrowsers}=require('./helpers/browser.cjs');
+const {projectOrder}=require('../src/content/projects.json');
+const moreProjectCount=projectOrder.length-3;
 let base;
 (async () => {
   await withSite(async url=>{base=url;await withBrowsers(async(engine,browser)=>{
@@ -8,12 +10,12 @@ let base;
     await page.goto(base);
     assert.equal(await page.locator('.work-case').count(), 3);
     assert.equal(await page.locator('.more-work details').count(), 0);
-    assert.equal(await page.locator('.more-project:visible').count(), 7);
+    assert.equal(await page.locator('.more-project:visible').count(), moreProjectCount);
     await page.locator('.more-project').first().focus();
     await page.keyboard.press('Enter');
     await page.waitForURL('**/project-platform.html');
     assert.ok(page.url().endsWith('project-platform.html'));
-    for (const slug of ['platform', 'tbm', 'dashboard', 'designsystem', 'intranet', 'kanvan']) {
+    for (const slug of ['platform', 'tbm', 'dashboard', 'designsystem', 'intranet', 'kanvan', 'intranet-day']) {
       await page.goto(`${base}/project-${slug}.html`);
       assert.equal(await page.locator('.case-brief dd').count(), 3);
       await page.locator('.brief-heading a').click();
@@ -34,7 +36,7 @@ let base;
     const noJS = await browser.newContext({javaScriptEnabled:false});
     const staticPage = await noJS.newPage();
     await staticPage.goto(base);
-    assert.equal(await staticPage.locator('.more-project:visible').count(), 7);
+    assert.equal(await staticPage.locator('.more-project:visible').count(), moreProjectCount);
     await noJS.close();
     console.log(`${engine}: project discovery, detail summary, image dialog, focus restoration, no-JS project visibility passed`);
   });});

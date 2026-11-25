@@ -329,7 +329,7 @@ if (p) {
       </dl>
       <div class="brief-scope"><strong>${p.deliverySummary && study.briefFacts ? "직접 담당" : "결과의 범위"}</strong><p>${p.deliverySummary && study.briefFacts ? p.contribution : p.deliverySummary || p.outcomeBasis}</p></div>
     </section>`);
-  if (["tbm", "intranet", "measure", "dashboard", "kanvan"].includes(slug)) {
+  if (["tbm", "intranet", "measure", "dashboard", "kanvan", "intranet-day"].includes(slug)) {
     document.querySelector(".case-brief").insertAdjacentHTML("beforeend", `<aside class="public-concept-note" aria-label="공개 자료 안내"><strong>${study.publicNotice?.title || "공개용 재설계 · 가상 데이터"}</strong><p>${study.publicNotice?.text || "프로젝트 경험을 설명하기 위해 UI를 새로 디자인했습니다. 브랜드·인물·조직·현장·일정·문서·수치·그래프는 모두 가상이며, 실제 운영 화면과 내부 자료를 사용하지 않았습니다. 프로젝트 이력과 담당 역할은 실제 경험을 기준으로 기술했습니다."}</p></aside>`);
   }
   // 배경·결과 요약은 한 영역으로 묶어 외부 간격을 중복하지 않는다.

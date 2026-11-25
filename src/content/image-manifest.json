@@ -758,5 +758,65 @@
         "height": 660
       }
     ]
+  },
+  "assets/cases/intranet-day/home.webp": {
+    "src": "assets/cases/intranet-day/home.webp",
+    "width": 1440,
+    "height": 1171,
+    "variants": [
+      {
+        "src": "assets/cases/intranet-day/home-720w.webp",
+        "width": 720
+      },
+      {
+        "src": "assets/cases/intranet-day/home.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "assets/cases/intranet-day/code.webp": {
+    "src": "assets/cases/intranet-day/code.webp",
+    "width": 1440,
+    "height": 1171,
+    "variants": [
+      {
+        "src": "assets/cases/intranet-day/code-720w.webp",
+        "width": 720
+      },
+      {
+        "src": "assets/cases/intranet-day/code.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "assets/cases/intranet-day/approval.webp": {
+    "src": "assets/cases/intranet-day/approval.webp",
+    "width": 1440,
+    "height": 1622,
+    "variants": [
+      {
+        "src": "assets/cases/intranet-day/approval-720w.webp",
+        "width": 720
+      },
+      {
+        "src": "assets/cases/intranet-day/approval.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "assets/cases/intranet-day/members.webp": {
+    "src": "assets/cases/intranet-day/members.webp",
+    "width": 1440,
+    "height": 1177,
+    "variants": [
+      {
+        "src": "assets/cases/intranet-day/members-720w.webp",
+        "width": 720
+      },
+      {
+        "src": "assets/cases/intranet-day/members.webp",
+        "width": 1440
+      }
+    ]
   }
 }
