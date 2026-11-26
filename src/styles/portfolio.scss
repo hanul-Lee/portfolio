@@ -508,8 +508,8 @@
   .more-project-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 24px;
     padding: 0;
     margin: 0;
   }
@@ -518,19 +518,22 @@
   }
   .more-project {
     display: grid;
-    grid-template-columns: 64px minmax(0, 1fr) 30px;
-    align-items: center;
-    gap: 20px;
-    min-height: 150px;
-    padding: 24px 0;
-    border-top: 1px solid var(--stroke);
+    grid-template-columns: minmax(0, 1fr) 24px;
+    grid-template-areas: "thumb thumb" "copy arrow";
+    align-items: start;
+    gap: 16px 12px;
+  }
+  .more-project-copy {
+    grid-area: copy;
+    min-width: 0;
   }
   .more-project-thumb {
+    grid-area: thumb;
     display: grid;
     place-items: center;
-    width: 64px;
-    height: 72px;
-    padding: 7px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    padding: 14px;
     overflow: hidden;
     background: #1a222b;
     border-radius: 6px;
@@ -560,6 +563,7 @@
     margin: 8px 0 0;
   }
   .more-project-arrow {
+    grid-area: arrow;
     color: #a9dce3;
     font-size: 20px;
     justify-self: end;
@@ -760,6 +764,9 @@
     color: #f2f4f5;
   }
   @media (max-width: 1100px) {
+    .more-project-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .intro-layout {
       min-height: 560px;
     }
@@ -859,8 +866,7 @@
       padding: 24px 0 0;
     }
     .more-project {
-      min-height: 130px;
-      gap: 16px;
+      gap: 12px;
     }
     .designer-about {
       grid-template-columns: minmax(0, 1fr);

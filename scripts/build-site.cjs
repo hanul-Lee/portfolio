@@ -17,13 +17,13 @@ function responsive(html){
   const source=tag.match(/\bsrc="([^"]+)"/)?.[1],image=images.get(source);if(!image)return tag;
   tag=tag.replace(/\s(?:width|height|srcset|sizes)="[^"]*"/g,'').replace(`src="${source}"`,`src="${image.src}"`);
   return tag.replace(/\s*\/?\>$/,` width="${image.width}" height="${image.height}" srcset="${image.variants.map(v=>`${v.src} ${v.width}w`).join(', ')}" sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1100px) 90vw, 60vw">`);
- }).replace(/(<div class="more-project-thumb"><img[^>]* sizes=")[^"]*/g,'$164px').replace(/(<div class="next-preview"><img[^>]* sizes=")[^"]*/g,'$1(max-width: 600px) 96px, 160px');
+ }).replace(/(<div class="more-project-thumb"><img[^>]* sizes=")[^"]*/g,'$1(max-width: 800px) calc(100vw - 40px), (max-width: 1100px) 45vw, 30vw').replace(/(<div class="next-preview"><img[^>]* sizes=")[^"]*/g,'$1(max-width: 600px) 96px, 160px');
 }
 function metadata(html,file){
  html=html.replace(/\s*<meta (?:property="og:(?:image(?::[\w]+)?|url)"|name="twitter:[^"]+")[^>]*>/g,'').replace(/\s*<link rel="canonical"[^>]*>/g,'');
  const url=new URL(file==='index.html'?'':file,site).href,image=new URL('assets/og-image.png',site).href;
  const title=html.match(/<title>(.*?)<\/title>/s)[1];
- return addSecurityMeta(html.replace('</head>',`    <link rel="canonical" href="${escape(url)}">\n    <meta property="og:url" content="${escape(url)}">\n    <meta property="og:image" content="${escape(image)}">\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta property="og:image:alt" content="이한울 UX/UI 포트폴리오 · B2B 업무 서비스의 정보 구조와 UI 설계">\n    <meta name="twitter:card" content="summary_large_image">\n    <meta name="twitter:title" content="${title.replace(/"/g,'&quot;')}">\n    <meta name="twitter:image" content="${escape(image)}">\n  </head>`).replace(/[ \t]+$/gm,''));
+ return addSecurityMeta(html.replace('</head>',`    <link rel="canonical" href="${escape(url)}">\n    <meta property="og:url" content="${escape(url)}">\n    <meta property="og:image" content="${escape(image)}">\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta property="og:image:alt" content="이한울 UX/UI 포트폴리오 · 매일 쓰는 서비스의 흐름을 설계하고 출시 뒤에도 고칩니다">\n    <meta name="twitter:card" content="summary_large_image">\n    <meta name="twitter:title" content="${title.replace(/"/g,'&quot;')}">\n    <meta name="twitter:image" content="${escape(image)}">\n  </head>`).replace(/[ \t]+$/gm,''));
 }
 function projectTemplate(slug){
  const p=content.projects[slug],meta=pageMeta[slug];

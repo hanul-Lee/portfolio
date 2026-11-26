@@ -82,9 +82,9 @@ if(width <= 1024) {
 }
 if(file==='index.html' && [390,1280].includes(width)) {
   const hero=await evalJS(`({image:document.querySelector('.hero-case-screen img').getAttribute('src'),scope:document.querySelector('.hero-case-meta').textContent,status:document.querySelector('.hero-case-top strong').textContent,planets:document.querySelectorAll('img[src*="assets/planets/"]').length,proof:document.querySelectorAll('.intro-proof > a').length})`);
-  assert.equal(hero.image,require('../src/content/image-manifest.json')['assets/cases/public-concepts/tbm-journal.svg'].src);
-  assert.ok(hero.scope.includes('모바일 UI 디자인') && hero.scope.includes('퍼블리싱'));
-  assert.equal(hero.status,'배포 후 실사용');
+  assert.ok(hero.image.includes('assets/cases/pet-6'));
+  assert.ok(hero.scope.includes('공동 기획') && hero.scope.includes('입력 흐름'));
+  assert.equal(hero.status,'2026.08 iOS 출시');
   assert.equal(hero.planets,0);
   assert.equal(hero.proof,0);
   const rows=await evalJS(`(()=>{const rows=[];for(const e of document.querySelectorAll('.work-case')){const r=e.getBoundingClientRect();let row=rows.find(x=>Math.abs(x.top-r.top)<1);if(row)row.bottom=Math.max(row.bottom,r.bottom);else rows.push({top:r.top,bottom:r.bottom});}return rows.sort((a,b)=>a.top-b.top);})()`);

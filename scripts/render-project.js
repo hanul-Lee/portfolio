@@ -201,8 +201,9 @@ const renderDocumentStory = (study) => {
   const n = () => String(section++).padStart(2, "0");
   return `
   ${study.storyFlow ? renderStoryFlow(study.storyFlow, n()) : ""}
+  ${renderVisuals([study.finalVisual, ...study.visuals], "현장 작업자의 휴대폰 화면", "매일 쓰는 일지 작성·확인·서명 화면")}
   <article class="story-section tbm-document-story" id="solution">
-    <header><p>${n()} 대표 화면</p><h3>${story.screenTitle}</h3></header>
+    <header><p>${n()} 운영 중 추가한 PC 화면</p><h3>${story.screenTitle}</h3></header>
     <figure class="tbm-primary-screen"><div class="visual-frame landscape"><img src="${study.impact.visual[0]}" alt="${study.impact.visual[1]}" decoding="async"></div><figcaption>${story.screenText}</figcaption></figure>
     <p class="tbm-source-note">파일 목록과 PDF 열람 화면 · 가상 데이터로 재구성</p>
   </article>
@@ -211,9 +212,8 @@ const renderDocumentStory = (study) => {
   <article class="story-section tbm-document-story" id="decision">
     <header><p>${n()} 함께 설계한 기준</p><h3>${story.decisionTitle}</h3></header>
     <dl class="tbm-state-list">${story.decisions.map(([title, text]) => `<div><dt>${title}</dt><dd>${text}</dd></div>`).join("")}</dl>
-    <p class="tbm-body-copy tbm-support-copy">${story.supportText}</p>
+    ${story.supportText ? `<p class="tbm-body-copy tbm-support-copy">${story.supportText}</p>` : ""}
   </article>
-  ${renderVisuals([study.finalVisual, ...study.visuals], "초기 과제 · 모바일·웹 일지", "종이 일지를 옮긴 작성·확인·저장 화면")}
   <article class="story-section tbm-document-story" id="impact">
     <header><p>${n()} 결과</p><h3>${story.resultTitle}</h3></header>
     <p class="tbm-body-copy">${story.resultText}</p>
@@ -252,6 +252,7 @@ const renderStudy = (study) => {
   </article>
   ${study.rationale ? renderRationale(study.rationale, nextSection()) : ""}
   ${study.inputStates ? renderInputStates(study.inputStates, nextSection()) : ""}
+  ${study.extensionFlow ? renderStoryFlow(study.extensionFlow, nextSection()) : ""}
   ${study.stateCompare ? renderStateCompare(study.stateCompare, nextSection()) : ""}
   ${study.annotated ? renderAnnotated(study.annotated, nextSection()) : ""}
   ${study.iteration ? renderIteration(study.iteration, nextSection()) : ""}

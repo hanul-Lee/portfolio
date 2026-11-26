@@ -30,3 +30,12 @@ __pycache__/
 *.key
 *.p12
 *.pfx
+
+# Editor settings
+/.vscode/
+
+# Example app: Vite compiles .scss directly, so editor-compiled CSS is local only
+/examples/*/src/**/*.css
+/examples/*/src/**/*.css.map
+/examples/*/node_modules/
+/examples/*/dist/

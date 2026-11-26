@@ -15,7 +15,7 @@ let base;
     await page.keyboard.press('Enter');
     await page.waitForURL('**/project-platform.html');
     assert.ok(page.url().endsWith('project-platform.html'));
-    for (const slug of ['platform', 'tbm', 'dashboard', 'designsystem', 'intranet', 'kanvan', 'intranet-day']) {
+    for (const slug of ['pet', 'tbm', 'designsystem', 'platform', 'dashboard', 'intranet']) {
       await page.goto(`${base}/project-${slug}.html`);
       assert.equal(await page.locator('.case-brief dd').count(), 3);
       await page.locator('.brief-heading a').click();
