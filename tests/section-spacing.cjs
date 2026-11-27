@@ -16,7 +16,7 @@ assert.equal(info.overflow,false,file+' overflow '+width);assert.equal(info.miss
 const min=width<=800?72:140,max=min;
 for(const gap of info.gaps){assert.ok(gap.actual>=min-.1&&gap.actual<=max+.1,JSON.stringify({file,width,...gap}));assert.equal(gap.previousMargin,'0px');assert.equal(gap.nextMargin,'0px');}
 if(file === 'index.html') {
-  const pair = await evalJS(`(()=>{const cases=[...document.querySelectorAll('.work-case')].slice(1,3);return cases.map(e=>{const v=e.querySelector('.work-visual').getBoundingClientRect(),story=e.querySelector('.work-story').getBoundingClientRect(),title=e.querySelector('h3').getBoundingClientRect();return {height:v.height,top:v.top,bottom:v.bottom,story:story.top,title:title.top,decisions:e.querySelector('.work-decisions').getBoundingClientRect().top,link:e.querySelector('.case-text-link').getBoundingClientRect().top};});})()`);
+  const pair = await evalJS(`(()=>{const cases=[...document.querySelectorAll('.work-case')].slice(2,4);return cases.map(e=>{const v=e.querySelector('.work-visual').getBoundingClientRect(),story=e.querySelector('.work-story').getBoundingClientRect(),title=e.querySelector('h3').getBoundingClientRect();return {height:v.height,top:v.top,bottom:v.bottom,story:story.top,title:title.top,decisions:e.querySelector('.work-decisions').getBoundingClientRect().top,link:e.querySelector('.case-text-link').getBoundingClientRect().top};});})()`);
   assert.ok(Math.abs(pair[0].height-pair[1].height)<1,'equal project visual height '+width);
   if(width>800)for(const key of ['top','bottom','story','title'])assert.ok(Math.abs(pair[0][key]-pair[1][key])<1,'project pair '+key+' '+width);
   for(const card of pair){assert.ok(card.decisions>card.title,'project decisions after title '+width);assert.ok(card.link>card.decisions,'project link after decisions '+width);}
@@ -82,7 +82,7 @@ if(width <= 1024) {
 }
 if(file==='index.html' && [390,1280].includes(width)) {
   const hero=await evalJS(`({image:document.querySelector('.hero-case-screen img').getAttribute('src'),scope:document.querySelector('.hero-case-meta').textContent,status:document.querySelector('.hero-case-top strong').textContent,planets:document.querySelectorAll('img[src*="assets/planets/"]').length,proof:document.querySelectorAll('.intro-proof > a').length})`);
-  assert.ok(hero.image.includes('assets/cases/pet-6'));
+  assert.ok(hero.image.includes('assets/cases/pet-screens'));
   assert.ok(hero.scope.includes('공동 기획') && hero.scope.includes('입력 흐름'));
   assert.equal(hero.status,'2026.08 iOS 출시');
   assert.equal(hero.planets,0);
@@ -95,7 +95,7 @@ if(file==='index.html' && [390,1280].includes(width)) {
 
 }
 if(width===1010 && (file==='index.html'||file==='project-platform.html'||file==='project-tbm.html')) {
-  const selector=file==='index.html'?'.work-case:nth-child(2)':file==='project-platform.html'?'#solution':'.next';
+  const selector=file==='index.html'?'.work-case:nth-child(3)':file==='project-platform.html'?'#solution':'.next';
   await evalJS(`document.documentElement.style.scrollBehavior='auto';document.querySelector('${selector}').scrollIntoView({behavior:'instant'})`);
   const shot=await send('Page.captureScreenshot');fs.writeFileSync(path.join(os.tmpdir(),file.replace('.html','')+'-alignment.png'),Buffer.from(shot.data,'base64'));
 }

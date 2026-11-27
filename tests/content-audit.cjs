@@ -40,7 +40,7 @@ for(const [name,blocks]of Object.entries(require('./fixtures/impact-strong.json'
 assert.ok(!/@import\b/.test(readBuilt('case.css')));
 assert.ok(!fs.existsSync(path.join(dist,'src'))&&!fs.existsSync(path.join(dist,'scripts'))&&!fs.existsSync(path.join(dist,'docs')),'source or archive leaked into output');
 assert.equal(fs.readdirSync(path.join(src,'templates')).filter(f=>f==='project.html').length,1);
-console.log('PASS: one project template, 11 static pages, public assets, next previews, metadata, priorities and protected styles');
+console.log('PASS: one project template, 12 static pages, public assets, next previews, metadata, priorities and protected styles');
 // Analytics stay testable without contacting GA.
 const listeners={},events=[];
 const window={location:{protocol:'https:',hostname:'hanul-lee.github.io',href:'https://hanul-lee.github.io/portfolio/'},navigator:{doNotTrack:'0'}};

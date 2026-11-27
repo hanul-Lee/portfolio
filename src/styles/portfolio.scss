@@ -384,7 +384,7 @@
     padding: 0;
     --chapter-light: #a9dce3;
   }
-  .work-case:first-child {
+  .work-case.featured-case {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     grid-column: 1 / -1;
@@ -438,7 +438,7 @@
     margin: 20px auto;
     box-shadow: none;
   }
-  .work-case:not(:first-child) .work-story {
+  .work-case:not(.featured-case) .work-story {
     padding-top: 28px;
   }
   .work-meta {
@@ -770,7 +770,7 @@
     .intro-layout {
       min-height: 560px;
     }
-    .work-case:first-child {
+    .work-case.featured-case {
       gap: 24px 32px;
     }
     .work-visual {
@@ -830,7 +830,7 @@
       grid-template-columns: minmax(0, 1fr);
       gap: 64px;
     }
-    .work-case:first-child {
+    .work-case.featured-case {
       display: block;
       grid-column: auto;
     }
@@ -840,7 +840,7 @@
       border-radius: 16px;
     }
     .work-story,
-    .work-case:not(:first-child) .work-story {
+    .work-case:not(.featured-case) .work-story {
       padding-top: 24px;
     }
     .work-story h3 {
@@ -890,7 +890,7 @@
     grid-column: 1 / -1;
     margin-bottom: 24px;
   }
-  .work-case:first-child .project-chapter {
+  .work-case.featured-case .project-chapter {
     margin-bottom: 0;
   }
   .project-chapter::after {
@@ -927,7 +927,7 @@
     .project-chapter {
       margin-bottom: 20px;
     }
-    .work-case:first-child .project-chapter {
+    .work-case.featured-case .project-chapter {
       margin-bottom: 20px;
     }
   }
@@ -940,8 +940,8 @@
   }
 }
 
-.portfolio-home .work-case:nth-child(2) .work-visual,
-.portfolio-home .work-case:nth-child(3) .work-visual {
+.portfolio-home .work-case:nth-child(3) .work-visual,
+.portfolio-home .work-case:nth-child(4) .work-visual {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto minmax(0, 1fr) auto;
@@ -966,13 +966,13 @@
 }
 
 @media (min-width: 801px) {
-  .portfolio-home .work-case:nth-child(2) .work-meta,
-  .portfolio-home .work-case:nth-child(3) .work-meta {
+  .portfolio-home .work-case:nth-child(3) .work-meta,
+  .portfolio-home .work-case:nth-child(4) .work-meta {
     min-height: 3.4em;
   }
 
-  .portfolio-home .work-case:nth-child(2) .work-description,
-  .portfolio-home .work-case:nth-child(3) .work-description {
+  .portfolio-home .work-case:nth-child(3) .work-description,
+  .portfolio-home .work-case:nth-child(4) .work-description {
     min-height: 5.55em;
   }
 }
@@ -1002,4 +1002,57 @@
   line-height: 1.8;
   vertical-align: 1px;
   white-space: nowrap;
+}
+
+/* An in-progress case keeps its slot with labelled empty phone frames until screens are added. */
+.portfolio-home .pending-visual {
+  background: #e9e5dc;
+  color: #3a3428;
+}
+.portfolio-home .pending-frames {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.6vw, 20px);
+  margin: 32px 0;
+  align-items: start;
+  padding: 0;
+  list-style: none;
+  li {
+    display: grid;
+    gap: 10px;
+    min-width: 0;
+  }
+  li::before {
+    content: "";
+    display: block;
+    aspect-ratio: 9 / 18;
+    border: 1.5px dashed #a59a85;
+    border-radius: 14px;
+    background: #f4f1ea;
+  }
+  span {
+    color: #8a7d64;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  b {
+    margin-top: -6px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+}
+@media (max-width: 800px) {
+  .portfolio-home .pending-frames {
+    gap: 8px;
+    margin: 24px 0;
+    li::before {
+      border-radius: 10px;
+    }
+    b {
+      font-size: 11px;
+    }
+  }
 }

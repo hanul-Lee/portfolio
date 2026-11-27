@@ -1004,10 +1004,8 @@ body[data-project] :focus-visible {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .project-visuals figure:hover img {
@@ -1051,8 +1049,7 @@ body[data-project] :focus-visible {
   display: block;
   width: 100%;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .mock-window.final-mockup.portrait {
   width: min(100%, 436px);
@@ -1098,10 +1095,8 @@ body[data-project] :focus-visible {
   min-height: 0;
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
 }
 
 .outcomes {
@@ -1982,7 +1977,6 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 14px 18px;
   background: #f3f5f7;
@@ -2160,7 +2154,6 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
 }
 /* 다음 사례의 화살표는 제목의 마지막 글자 바로 뒤에 둔다. */
 .case-main .case-body .next > a:first-child {
-  width: -moz-fit-content;
   width: fit-content;
   max-width: 100%;
   padding-right: 0;
@@ -2300,8 +2293,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
     padding: 20px 16px;
   }
   .case-main > .case-hero .case-hero-actions {
-    -moz-column-gap: 20px;
-         column-gap: 20px;
+    column-gap: 20px;
   }
   .case-main > .case-hero .case-hero-actions a {
     gap: 10px;
@@ -2473,7 +2465,6 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
   margin-top: 24px;
 }
 .decision-source summary {
-  width: -moz-fit-content;
   width: fit-content;
   min-height: 44px;
   padding-block: 12px;
@@ -2552,8 +2543,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .delivery-visual figcaption {
   margin-top: 12px;
@@ -2789,8 +2779,7 @@ body[data-project=tbm] #evidence .impact-flow > div:first-child > strong {
   max-width: 100%;
   height: auto;
   max-height: var(--cover-image-height);
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media (max-width: 800px) {
@@ -2820,8 +2809,7 @@ body[data-project=kanvan] .ui-stage .mock-window.final-mockup.landscape img {
   max-width: 100%;
   height: auto;
   max-height: 320px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media (min-width: 801px) {
@@ -2959,9 +2947,7 @@ body[data-project=kanvan] .ui-stage .mock-window.final-mockup.landscape img {
 }
 .image-viewer .viewer-canvas.is-dragging {
   cursor: grabbing;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 @media (max-width: 800px) {
@@ -3050,8 +3036,7 @@ body[data-project=kanvan] .ui-stage .mock-window.final-mockup.landscape img {
 .case-main .case-body .next .next-preview img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .case-main .case-body .next .next-copy {
   min-width: 0;
@@ -3645,4 +3630,214 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
-}/*# sourceMappingURL=case.css.map */
+}
+
+/* ---- In-progress case: amount-field states, pending screens and evidence slots ---- */
+.input-state.is-locked .demo-field {
+  justify-content: space-between;
+  border-color: #cfd5dd;
+  background: #f6f4ef;
+  color: #1f2a37;
+  font-weight: 700;
+}
+.input-state.is-affected .demo-field {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--case-text-accent) 12%, white);
+  color: #1f2a37;
+}
+.input-state.is-error .demo-field {
+  border: 2px solid #c2382b;
+  background: #fff;
+  color: #a42c20;
+  font-size: 15px;
+}
+
+.mock-window.visual-pending {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  padding: 28px;
+  border: 1.5px dashed color-mix(in srgb, var(--case-text-accent) 45%, #c9c3b6);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--case-text-accent) 4%, #fbfaf7);
+  box-shadow: none;
+}
+.mock-window.visual-pending ol {
+  display: grid;
+  grid-template-columns: repeat(var(--frames, 4), minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mock-window.visual-pending li {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.mock-window.visual-pending li::before {
+  content: "";
+  display: block;
+  aspect-ratio: 9/18;
+  border: 1.5px dashed #b4ab99;
+  border-radius: 14px;
+  background: #fff;
+}
+.mock-window.visual-pending span {
+  color: var(--case-text-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.mock-window.visual-pending b {
+  color: #2f3a48;
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.mock-window.visual-pending > p {
+  margin: 0;
+  color: #637080;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.case-cover .mock-window.visual-pending {
+  max-width: 620px;
+  margin: auto;
+}
+
+.next-preview .next-pending {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  border: 1px dashed #b9c0c9;
+  border-radius: 8px;
+  color: #667080;
+  font-size: 12px;
+}
+
+body[data-project=settle] .case-main .case-hero .case-cover {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: #f6f3ec;
+}
+
+@media (min-width: 901px) {
+  body[data-project=settle] .strategy-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body[data-project=settle] .strategy-list > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  body[data-project=settle] .strategy-list > div:nth-child(n+3) {
+    border-top: 1px solid #e5e8eb;
+  }
+}
+.evidence-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.evidence-slot {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  min-width: 0;
+  margin: 0;
+}
+.evidence-slot .slot-frame {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4/3;
+  border: 1.5px dashed #c3c9d1;
+  border-radius: 12px;
+  background: #f7f8fa;
+}
+.evidence-slot .slot-frame span {
+  color: #7a8494;
+  font-size: 13px;
+}
+.evidence-slot .slot-rows {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  margin: 0;
+  padding: 6px 20px;
+  border: 1px solid #e3e6ea;
+  border-radius: 12px;
+  background: #fff;
+}
+.evidence-slot .slot-rows > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 14px 0;
+}
+.evidence-slot .slot-rows > div + div {
+  border-top: 1px solid #edf0f2;
+}
+.evidence-slot .slot-rows i {
+  grid-row: span 2;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.1019607843);
+  border-radius: 8px;
+}
+.evidence-slot .slot-rows dt {
+  color: var(--case-text-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.evidence-slot .slot-rows dd {
+  grid-column: 1/-1;
+  margin: 0;
+  color: #1f2a37;
+  font-size: 14px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.evidence-slot .slot-rows i ~ dd {
+  grid-column: 2;
+}
+.evidence-slot figcaption {
+  display: grid;
+  gap: 6px;
+}
+.evidence-slot figcaption b {
+  color: #1f2a37;
+  font-size: 16px;
+}
+.evidence-slot figcaption span {
+  color: #5b6573;
+  font-size: 14px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+@media (max-width: 900px) {
+  .evidence-slot-grid {
+    grid-template-columns: 1fr;
+  }
+  .mock-window.visual-pending {
+    padding: 20px;
+  }
+  .mock-window.visual-pending ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+  .mock-window.visual-pending li::before {
+    aspect-ratio: 9/14;
+  }
+  .mock-window.visual-pending b {
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=case.css.map */

@@ -818,5 +818,32 @@
         "width": 1440
       }
     ]
+  },
+  "assets/cases/pet-screens.png": {
+    "src": "assets/cases/pet-screens-2180w.webp",
+    "width": 2180,
+    "height": 1410,
+    "variants": [
+      {
+        "src": "assets/cases/pet-screens-480w.webp",
+        "width": 480,
+        "height": 310
+      },
+      {
+        "src": "assets/cases/pet-screens-960w.webp",
+        "width": 960,
+        "height": 621
+      },
+      {
+        "src": "assets/cases/pet-screens-1920w.webp",
+        "width": 1920,
+        "height": 1242
+      },
+      {
+        "src": "assets/cases/pet-screens-2180w.webp",
+        "width": 2180,
+        "height": 1410
+      }
+    ]
   }
 }

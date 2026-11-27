@@ -39,3 +39,9 @@ __pycache__/
 /examples/*/src/**/*.css.map
 /examples/*/node_modules/
 /examples/*/dist/
+
+# Local logs, OS files and personal tool settings
+*.log
+npm-debug.log*
+Thumbs.db
+/.claude/settings.local.json

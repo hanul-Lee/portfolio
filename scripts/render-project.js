@@ -13,23 +13,27 @@ const icon = (name) => {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${className}" aria-hidden="true">${paths[name] || paths.action}</svg>`;
 };
 
-const renderMockup = (type, finalVisual) => {
+const renderMockup = (type, finalVisual, pending) => {
   if (finalVisual)
     return `<div class="mock-window final-mockup ${finalVisual[3]}"><img src="${finalVisual[0]}" alt="${finalVisual[1]}" decoding="async"></div>`;
-  return "";
+  return pending ? renderPendingVisual(pending) : "";
 };
+
+// Cases still in progress keep their layout with labelled empty phone frames until the screens are added.
+const renderPendingVisual = (pending) =>
+  `<div class="mock-window visual-pending" role="img" aria-label="${pending.label}"><ol style="--frames: ${pending.frames.length}">${pending.frames.map((frame, i) => `<li><span>${String(i + 1).padStart(2, "0")}</span><b>${frame}</b></li>`).join("")}</ol><p>${pending.label}</p></div>`;
 
 const renderReframe = (item, number) =>
   item
     ? `
   <article class="story-section reframe" id="reframe">
-    <header><p>${number} 문제 재정의</p><h3>기존 업무에서 해결할 문제와 설계 방향을 정리했습니다.</h3></header>
+    <header><p>${number} ${item.label || "문제 재정의"}</p><h3>${item.title || "기존 업무에서 해결할 문제와 설계 방향을 정리했습니다."}</h3></header>
     <div class="reframe-flow">
-      <div><small>설계 과제</small><p>${item.request}</p></div>
+      <div><small>${item.labels?.[0] || "설계 과제"}</small><p>${item.request}</p></div>
       <span>→</span>
-      <div><small>관찰한 문제</small><p>${item.observed}</p></div>
+      <div><small>${item.labels?.[1] || "관찰한 문제"}</small><p>${item.observed}</p></div>
       <span>→</span>
-      <div class="reframed"><small>다시 정의한 문제</small><p>${item.result}</p></div>
+      <div class="reframed"><small>${item.labels?.[2] || "다시 정의한 문제"}</small><p>${item.result}</p></div>
     </div>
   </article>`
     : "";
@@ -166,6 +170,17 @@ const renderProposals = (item, number) =>
   </article>`
     : "";
 
+// Slots for evidence that is described now and attached as images later.
+const renderEvidenceSlots = (item, number) => `
+  <article class="story-section evidence-slots" id="${item.id || "evidence-slots"}">
+    <header><p>${number} ${item.label}</p><h3>${item.title}</h3></header>
+    ${item.intro ? `<p class="block-intro">${item.intro}</p>` : ""}
+    <div class="evidence-slot-grid">${item.slots
+      .map(([title, text, rows]) => `<figure class="evidence-slot">${rows ? `<dl class="slot-rows">${rows.map(([k, v, swatch]) => `<div>${swatch ? `<i style="background:${swatch}" aria-hidden="true"></i>` : ""}<dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : `<div class="slot-frame"><span>자료 추가 예정</span></div>`}<figcaption><b>${title}</b><span>${text}</span></figcaption></figure>`)
+      .join("")}</div>
+    ${item.note ? `<p class="block-note">${item.note}</p>` : ""}
+  </article>`;
+
 // Existing project decisions, with explicit follow-up questions rather than invented test results.
 const decisionNotes = {
   "designsystem": [
@@ -202,6 +217,11 @@ const renderDocumentStory = (study) => {
   return `
   ${study.storyFlow ? renderStoryFlow(study.storyFlow, n()) : ""}
   ${renderVisuals([study.finalVisual, ...study.visuals], "현장 작업자의 휴대폰 화면", "매일 쓰는 일지 작성·확인·서명 화면")}
+  <article class="story-section tbm-document-story" id="decision">
+    <header><p>${n()} 함께 설계한 기준</p><h3>${story.decisionTitle}</h3></header>
+    <dl class="tbm-state-list">${story.decisions.map(([title, text]) => `<div><dt>${title}</dt><dd>${text}</dd></div>`).join("")}</dl>
+    ${story.supportText ? `<p class="tbm-body-copy tbm-support-copy">${story.supportText}</p>` : ""}
+  </article>
   <article class="story-section tbm-document-story" id="solution">
     <header><p>${n()} 운영 중 추가한 PC 화면</p><h3>${story.screenTitle}</h3></header>
     <figure class="tbm-primary-screen"><div class="visual-frame landscape"><img src="${study.impact.visual[0]}" alt="${study.impact.visual[1]}" decoding="async"></div><figcaption>${story.screenText}</figcaption></figure>
@@ -209,11 +229,6 @@ const renderDocumentStory = (study) => {
   </article>
   ${study.stateCompare ? renderStateCompare(study.stateCompare, n()) : ""}
   ${study.rationale ? renderRationale(study.rationale, n()) : ""}
-  <article class="story-section tbm-document-story" id="decision">
-    <header><p>${n()} 함께 설계한 기준</p><h3>${story.decisionTitle}</h3></header>
-    <dl class="tbm-state-list">${story.decisions.map(([title, text]) => `<div><dt>${title}</dt><dd>${text}</dd></div>`).join("")}</dl>
-    ${story.supportText ? `<p class="tbm-body-copy tbm-support-copy">${story.supportText}</p>` : ""}
-  </article>
   <article class="story-section tbm-document-story" id="impact">
     <header><p>${n()} 결과</p><h3>${story.resultTitle}</h3></header>
     <p class="tbm-body-copy">${story.resultText}</p>
@@ -232,7 +247,7 @@ const renderStudy = (study) => {
   const renderSolution = () => `
   <article class="story-section solution" id="solution">
     <div class="solution-copy"><p>${nextSection()} ${study.solutionLabel || "설계 화면과 흐름"}</p><h3>${study.uiTitle}</h3><span>${study.uiText}</span>${study.solutionSteps ? `<ol class="solution-steps">${study.solutionSteps.map((x) => `<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join("")}</ol>` : ""}</div>
-    <div class="ui-stage">${renderMockup(study.ui, study.finalVisual)}</div>
+    <div class="ui-stage">${renderMockup(study.ui, study.finalVisual, study.pendingVisual)}</div>
   </article>
 `;
   return `
@@ -258,7 +273,9 @@ const renderStudy = (study) => {
   ${study.iteration ? renderIteration(study.iteration, nextSection()) : ""}
   ${study.solutionFirst ? "" : renderSolution()}
   ${renderVisuals(study.visuals, study.visualsLabel, study.visualsTitle)}
+  ${(study.evidenceSlots || []).map((item) => renderEvidenceSlots(item, nextSection())).join("")}
   ${study.impact ? renderImpact(study.impact, nextSection()) : ""}
+  ${study.testFlow ? renderStoryFlow(study.testFlow, nextSection()) : ""}
   ${study.proposals ? renderProposals(study.proposals, nextSection()) : ""}
   ${study.reflection ? renderReflection(study.reflection, nextSection()) : ""}`;
 };
@@ -305,6 +322,7 @@ if (p) {
   document.querySelector(".case-cover").innerHTML = renderMockup(
     caseStudies[slug].ui,
     caseStudies[slug].heroVisual || caseStudies[slug].finalVisual,
+    caseStudies[slug].pendingVisual,
   );
   document.querySelector(".problem").textContent = p.problem;
   document.querySelector(".detail").textContent = p.detail;
@@ -330,7 +348,7 @@ if (p) {
       </dl>
       <div class="brief-scope"><strong>${p.deliverySummary && study.briefFacts ? "직접 담당" : "결과의 범위"}</strong><p>${p.deliverySummary && study.briefFacts ? p.contribution : p.deliverySummary || p.outcomeBasis}</p></div>
     </section>`);
-  if (["tbm", "intranet", "measure", "dashboard", "kanvan", "intranet-day"].includes(slug)) {
+  if (["tbm", "intranet", "measure", "dashboard", "kanvan", "intranet-day", "settle"].includes(slug)) {
     document.querySelector(".case-brief").insertAdjacentHTML("beforeend", `<aside class="public-concept-note" aria-label="공개 자료 안내"><strong>${study.publicNotice?.title || "공개용 재설계 · 가상 데이터"}</strong><p>${study.publicNotice?.text || "프로젝트 경험을 설명하기 위해 UI를 새로 디자인했습니다. 브랜드·인물·조직·현장·일정·문서·수치·그래프는 모두 가상이며, 실제 운영 화면과 내부 자료를 사용하지 않았습니다. 프로젝트 이력과 담당 역할은 실제 경험을 기준으로 기술했습니다."}</p></aside>`);
   }
   // 배경·결과 요약은 한 영역으로 묶어 외부 간격을 중복하지 않는다.
@@ -347,7 +365,7 @@ if (p) {
   const nextVisual=nextStudy.heroVisual||nextStudy.finalVisual;
   const nextLink=document.querySelector(".next a");
   nextLink.classList.add("next-project");
-  nextLink.innerHTML=`<div class="next-preview"><img src="${nextVisual[0]}" alt="" loading="lazy" decoding="async"></div><div class="next-copy"><span>다음 프로젝트</span><h3></h3><p></p></div>`;
+  nextLink.innerHTML=`<div class="next-preview">${nextVisual?`<img src="${nextVisual[0]}" alt="" loading="lazy" decoding="async">`:`<span class="next-pending">화면 작업 중</span>`}</div><div class="next-copy"><span>다음 프로젝트</span><h3></h3><p></p></div>`;
   nextLink.querySelector("h3").textContent=nextProject.title;
   nextLink.querySelector("p").textContent=nextProject.summary;
   document.body.setAttribute("data-prerendered", "true");

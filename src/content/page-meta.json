@@ -1,6 +1,6 @@
 {
   "pet": {
-    "description": "개발자 1명과 공동 기획·UX/UI 디자인을 진행한 반려동물 앱, 2026.08.17 iOS 출시",
+    "description": "개발자 1명과 공동 기획·UX/UI 디자인을 진행한 반려동물 앱, 2026.08.17 iOS 출시. 출시 후 첫 기록 저장 과정을 좁혀 개선합니다.",
     "ogDescription": "개발자 1명과 공동 기획·UX/UI 디자인을 진행한 반려동물 앱, 2026.08.17 iOS 출시",
     "actions": [
       {
@@ -24,6 +24,26 @@
     ],
     "outcomesStyle": "border-top:none;border-bottom:none",
     "ogTitle": "댕냥실록 | 반려동물 건강 기록·일정 관리 앱 | 이한울 · UX/UI 디자이너"
+  },
+  "settle": {
+    "description": "먹은 양이 다를 때 한 사람의 금액을 고정하고 나머지를 자동으로 나누는 차등 정산 흐름. 카카오톡 정산하기를 바탕으로 한 개인 콘셉트 리디자인(작업 중).",
+    "ogDescription": "차등 정산 규칙 · 모바일 화면 흐름 · 사용성 검증 계획 · 개인 콘셉트(카카오와 무관)",
+    "actions": [
+      {
+        "href": "#decision",
+        "label": "정산 규칙 보기",
+        "arrow": "↓",
+        "newTab": false
+      },
+      {
+        "href": "#states",
+        "label": "금액 칸의 상태 보기",
+        "arrow": "↓",
+        "newTab": false
+      }
+    ],
+    "outcomesStyle": "border-top:none;border-bottom:none",
+    "ogTitle": "카카오톡 정산하기 리디자인 · 차등 정산 흐름 | 이한울 · UX/UI 디자이너"
   },
   "tbm": {
     "description": "현장 작업자가 매일 휴대폰으로 쓰는 안전 기록 서비스. 종이 일지를 모바일 작성·서명 흐름으로 옮기고, 운영 중 나온 요청을 2일 만에 반영했습니다.",
@@ -146,8 +166,8 @@
     "ogTitle": "반응형 웹 전면 리뉴얼 | 이한울 · UX/UI 디자이너"
   },
   "designsystem": {
-    "description": "공통 UI 기준을 만들고, 디자인 토큰으로 구조화하고, 기준 문서로 AI가 화면을 확장하게 한 작업 방식",
-    "ogDescription": "공통 UI 기준을 만들고, 디자인 토큰으로 구조화하고, 기준 문서로 AI가 화면을 확장하게 한 작업 방식",
+    "description": "공통 UI 기준을 만들고, 디자인 토큰으로 구조화하고, 기준 메뉴 1개와 기준 문서로 AI가 나머지 11개 메뉴를 확장하게 한 작업 방식",
+    "ogDescription": "공통 UI 기준을 만들고, 디자인 토큰으로 구조화하고, 기준 메뉴 1개와 기준 문서로 AI가 나머지 11개 메뉴를 확장하게 한 작업 방식",
     "actions": [
       {
         "href": "#decision",
