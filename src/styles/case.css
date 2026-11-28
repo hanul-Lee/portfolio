@@ -567,7 +567,7 @@ body[data-project] :focus-visible {
 
 .impact-flow small {
   margin-bottom: 18px;
-  color: #939ba8;
+  color: #5b6270;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -639,7 +639,7 @@ body[data-project] :focus-visible {
   border-color: #e5e8eb;
 }
 .case-hero .case-meta span {
-  color: #6b7684;
+  color: #5b6270;
   opacity: 1;
 }
 .case-hero .case-cover {
@@ -681,7 +681,7 @@ body[data-project] :focus-visible {
   color: #191f28;
 }
 .case-body .outcomes .outcome span {
-  color: #6b7684;
+  color: #5b6270;
 }
 .case-body .gallery {
   gap: 0;
@@ -721,10 +721,10 @@ body[data-project] :focus-visible {
   border-radius: 0;
 }
 .evidence-grid small {
-  color: #6b7684;
+  color: #5b6270;
 }
 .evidence-grid p {
-  color: #6b7684;
+  color: #5b6270;
 }
 
 .strategy {
@@ -750,7 +750,7 @@ body[data-project] :focus-visible {
   color: var(--case-text-accent, #3b389f);
 }
 .strategy-list p {
-  color: #6b7684;
+  color: #5b6270;
 }
 
 .solution {
@@ -782,7 +782,7 @@ body[data-project] :focus-visible {
   color: var(--case-text-accent, #3b389f);
 }
 .impact .impact-note {
-  color: #6b7684;
+  color: #5b6270;
 }
 
 @media (max-width: 800px) {
@@ -852,7 +852,7 @@ body[data-project] :focus-visible {
 }
 
 .context-facts small {
-  color: #6b7684;
+  color: #5b6270;
   font-size: 12px;
   font-weight: 600;
 }
@@ -881,7 +881,7 @@ body[data-project] :focus-visible {
 }
 .reframe-flow > span {
   align-self: center;
-  color: #6b7684;
+  color: #5b6270;
 }
 .reframe-flow p {
   margin: 0;
@@ -901,7 +901,7 @@ body[data-project] :focus-visible {
 .reflection-grid small {
   display: block;
   margin-bottom: 14px;
-  color: #6b7684;
+  color: #5b6270;
   font-size: 12px;
   font-weight: 700;
 }
@@ -1024,13 +1024,13 @@ body[data-project] :focus-visible {
 }
 .project-visuals figcaption span {
   grid-column: 1;
-  color: #6b7684;
+  color: #5b6270;
   font-size: var(--type-caption);
   line-height: 1.65;
 }
 .project-visuals figcaption small {
   grid-column: 1;
-  color: #6b7684;
+  color: #5b6270;
   font-size: 10px;
   letter-spacing: 0.04em;
 }
@@ -1106,7 +1106,7 @@ body[data-project] :focus-visible {
 .strategy-list small {
   display: block;
   margin: 22px 0 7px;
-  color: #6b7684;
+  color: #5b6270;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1122,6 +1122,19 @@ body[data-project=dashboard] .evidence-grid > div {
   align-items: baseline;
 }
 
+body[data-project=pet] {
+  /* Portrait app screens need a portrait stage, otherwise they shrink to a thumbnail. */
+}
+body[data-project=pet] .comparison-image {
+  aspect-ratio: 3/4;
+  max-height: 520px;
+  padding: 20px 0;
+}
+body[data-project=pet] .comparison-image img {
+  inset: 20px 0;
+  height: calc(100% - 40px);
+  filter: drop-shadow(0 10px 24px rgba(27, 47, 84, 0.16));
+}
 body[data-project=pet] .reframe-flow .reframed {
   background: #f5ead4;
 }
@@ -1161,7 +1174,7 @@ body[data-project=tbm] .strategy-list {
 .case-progress a {
   position: relative;
   padding-left: 11px;
-  color: #6b7684;
+  color: #5b6270;
   font-size: 10px;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -1734,7 +1747,9 @@ body[data-project=tbm] .strategy-list {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  width: max-content;
   min-height: 30px;
+  white-space: nowrap;
 }
 
 .image-zoom svg {
@@ -1957,7 +1972,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
   padding-right: 48px;
 }
 .case-main .case-body .next > a:first-child > span {
-  color: #667080;
+  color: #5b6270;
   font-size: 12px;
 }
 .case-main .case-body .next > a:first-child::after {
@@ -2237,7 +2252,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
   font-size: 11px;
   letter-spacing: 0;
   line-height: 1.7;
-  color: #637080;
+  color: #5b6270;
 }
 .case-main > .case-hero > .case-meta b {
   font-size: 13px;
@@ -2480,7 +2495,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
 .decision-detail .comparison-context {
   margin: 12px 0 0;
   max-width: 760px;
-  color: #637080;
+  color: #5b6270;
   font-size: 13px;
   line-height: 1.85;
 }
@@ -2507,7 +2522,7 @@ body[data-project=dashboard] .case-main .evidence-grid > div:last-child {
 }
 .feedback-record > p:last-child {
   margin: 16px 0 0;
-  color: #637080;
+  color: #5b6270;
   font-size: 14px;
   line-height: 1.85;
 }
@@ -2608,7 +2623,8 @@ body[data-project=dashboard] .project-visuals figure .visual-frame {
 }
 
 body[data-project=intranet] .project-visuals figure .visual-frame,
-body[data-project=measure] .project-visuals figure .visual-frame {
+body[data-project=measure] .project-visuals figure .visual-frame,
+body[data-project=tbm] .project-visuals figure .visual-frame {
   height: 440px;
   max-height: none;
   aspect-ratio: auto;
@@ -2628,7 +2644,8 @@ body[data-project=measure] .project-visuals figure .visual-frame {
     height: 220px;
   }
   body[data-project=intranet] .project-visuals figure .visual-frame,
-  body[data-project=measure] .project-visuals figure .visual-frame {
+  body[data-project=measure] .project-visuals figure .visual-frame,
+  body[data-project=tbm] .project-visuals figure .visual-frame {
     height: 380px;
   }
 }
@@ -2672,7 +2689,7 @@ body[data-project=tbm] #evidence .impact-flow > div:first-child > strong {
 }
 .tbm-document-story .tbm-source-note {
   margin: 16px 0 0;
-  color: #637080;
+  color: #5b6270;
   font-size: 14px;
   line-height: 1.8;
 }
@@ -3042,7 +3059,7 @@ body[data-project=kanvan] .ui-stage .mock-window.final-mockup.landscape img {
   min-width: 0;
 }
 .case-main .case-body .next .next-copy > span {
-  color: #667080;
+  color: #5b6270;
   font-size: 12px;
 }
 .case-main .case-body .next .next-copy h3 {
@@ -3122,7 +3139,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
 }
 .case-main .story-section .block-note {
   margin: 20px 0 0;
-  color: #637080;
+  color: #5b6270;
   font-size: 14px;
   line-height: 1.8;
   word-break: keep-all;
@@ -3233,7 +3250,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
   content: "비교 기준";
   align-self: center;
   margin-right: 4px;
-  color: #637080;
+  color: #5b6270;
   font-size: 13px;
   font-weight: 700;
 }
@@ -3375,7 +3392,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
   border: 1px solid #cfd5dd;
   border-radius: 8px;
   background: #fff;
-  color: #8b95a3;
+  color: #5b6270;
   font-size: 16px;
 }
 .input-state p {
@@ -3402,7 +3419,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
 .input-state.is-disabled .demo-field {
   border-color: #e4e7eb;
   background: #f1f3f5;
-  color: #b3bac4;
+  color: #666d7a;
 }
 .input-state.is-readonly .demo-field {
   border-color: transparent;
@@ -3698,7 +3715,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
 }
 .mock-window.visual-pending > p {
   margin: 0;
-  color: #637080;
+  color: #5b6270;
   font-size: 13px;
   line-height: 1.7;
 }
@@ -3714,7 +3731,7 @@ body[data-project=kanvan] .case-main .case-hero .case-cover {
   height: 100%;
   border: 1px dashed #b9c0c9;
   border-radius: 8px;
-  color: #667080;
+  color: #5b6270;
   font-size: 12px;
 }
 
@@ -3724,7 +3741,16 @@ body[data-project=settle] .case-main .case-hero .case-cover {
   padding: 32px;
   background: #f6f3ec;
 }
+body[data-project=settle] .case-main > .case-hero .case-cover {
+  max-height: none;
+}
 
+@media (max-width: 900px) {
+  .case-cover .mock-window.visual-pending ol {
+    grid-template-columns: repeat(var(--frames, 4), minmax(0, 1fr));
+    gap: 10px;
+  }
+}
 @media (min-width: 901px) {
   body[data-project=settle] .strategy-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3736,16 +3762,23 @@ body[data-project=settle] .case-main .case-hero .case-cover {
   body[data-project=settle] .strategy-list > div:nth-child(n+3) {
     border-top: 1px solid #e5e8eb;
   }
+  body[data-project=settle] .strategy-list > div:not(:nth-last-child(-n+2)) {
+    padding-bottom: 16px;
+  }
+  body[data-project=settle] .strategy-list > div:nth-last-child(-n+2) {
+    padding-bottom: 0;
+  }
 }
 .evidence-slot-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px 20px;
 }
 
 .evidence-slot {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
   gap: 16px;
   min-width: 0;
   margin: 0;
@@ -3759,8 +3792,25 @@ body[data-project=settle] .case-main .case-hero .case-cover {
   background: #f7f8fa;
 }
 .evidence-slot .slot-frame span {
-  color: #7a8494;
+  color: #5b6270;
   font-size: 13px;
+}
+.evidence-slot .slot-image {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #e3e6ea;
+  border-style: solid;
+  background: #f6f5f3;
+  align-self: start;
+}
+.evidence-slot .slot-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.evidence-slot .slot-image:focus-visible {
+  outline: 2px solid var(--case-text-accent);
+  outline-offset: 3px;
 }
 .evidence-slot .slot-rows {
   display: grid;
@@ -3837,6 +3887,382 @@ body[data-project=settle] .case-main .case-hero .case-cover {
   }
   .mock-window.visual-pending b {
     font-size: 12px;
+  }
+}
+/* =====================================================================
+   World: version history (2026-11-28 redesign)
+   Each project page reads as one release: a white release header panel,
+   participation facts as a grouped list, and every section as a note card
+   on the cool grouped ground. One release blue replaces per-project accents.
+   `.impact-flow strong` declarations above are intentionally left untouched.
+   ===================================================================== */
+body[data-project] {
+  --case-accent: #1f5bff;
+  --case-text-accent: #1f5bff;
+  --blue: #1f5bff;
+  color: var(--ink);
+  background: var(--ground);
+}
+
+.case-main {
+  padding-top: calc(var(--header-height) + 24px);
+  padding-bottom: 40px;
+  background: transparent;
+}
+.case-main > .case-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  min-height: 0;
+  padding: clamp(26px, 3.4vw, 48px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+}
+.case-main .case-hero-copy {
+  display: flex;
+  flex-direction: column;
+}
+.case-main {
+  /* The project number line reads as the release meta under the title, not as a kicker above it */
+}
+.case-main .case-hero .case-eyebrow {
+  order: 2;
+  align-self: flex-start;
+  margin: 0 0 18px;
+  padding: 5px 12px;
+  color: var(--muted);
+  background: var(--panel-sunk);
+  border-radius: var(--radius-control);
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.case-main .case-hero h1 {
+  order: 1;
+  margin: 0 0 14px;
+  font-size: var(--type-h1);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.case-main .case-hero .case-lead {
+  order: 3;
+  color: var(--ink);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+.case-main .case-hero .case-result {
+  order: 4;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+.case-main .case-hero .case-hero-actions {
+  order: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.case-main .case-hero .case-hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 18px;
+  color: var(--ink);
+  background: var(--panel-sunk);
+  border: 0;
+  border-radius: var(--radius-control);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.case-main .case-hero .case-hero-actions a:first-child {
+  color: #fff;
+  background: var(--blue);
+}
+.case-main .case-hero .case-hero-actions a:hover {
+  color: var(--blue);
+  background: var(--blue-tint);
+}
+.case-main .case-hero .case-hero-actions a:first-child:hover {
+  color: #fff;
+  background: var(--blue-deep);
+}
+.case-main .case-hero .case-cover {
+  padding: clamp(18px, 2vw, 28px);
+  background: #e6e9f1;
+  border-radius: var(--radius-card);
+}
+.case-main {
+  /* Participation facts: one grouped list with hairlines */
+}
+.case-main .case-hero > .case-meta {
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.case-main .case-hero > .case-meta > div {
+  padding: 18px 20px 4px 0;
+}
+.case-main .case-hero > .case-meta span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: 1;
+}
+.case-main .case-hero > .case-meta b {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.case-main > .case-brief {
+  padding: clamp(24px, 3vw, 40px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+}
+.case-main > .case-brief h2 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.case-main > .case-brief .brief-facts > div + div {
+  border-left-color: var(--line);
+}
+.case-main > .case-brief .brief-heading a {
+  color: var(--ink);
+  background: var(--panel-sunk);
+  border: 0;
+  border-radius: var(--radius-control);
+}
+.case-main > .case-brief .brief-heading a:hover {
+  color: var(--blue);
+  background: var(--blue-tint);
+}
+.case-main > .case-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.case-main > .case-body > .case-summary,
+.case-main > .case-body > .outcomes:not(:empty),
+.case-main > .case-body > .gallery > .story-section,
+.case-main > .case-body > .gallery > .impact {
+  margin-block: 0;
+  padding: clamp(26px, 3.4vw, 48px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+}
+.case-main > .case-body > .gallery {
+  gap: 0;
+}
+.case-main > .case-body .case-summary h2,
+.case-main > .case-body .story-section h3,
+.case-main > .case-body .story-section header h3,
+.case-main > .case-body .solution-copy h3 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.case-main > .case-body .outcomes .outcome {
+  border-top-color: var(--line);
+}
+.case-main .case-section-label,
+.case-main .story-section header > p,
+.case-main .solution-copy > p {
+  color: var(--blue);
+  font-family: var(--font-num), var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Inner note boxes share one sunk tone instead of per-project warm tints */
+body[data-project] .evidence-grid > div,
+body[data-project] .reuse-split > div,
+body[data-project] .evidence-basis > div,
+body[data-project] .reframe-flow .reframed,
+body[data-project] .comparison-image,
+body[data-project] .input-state-grid {
+  background: var(--panel-sunk);
+  border-color: var(--line);
+}
+body[data-project] .reframe-flow .reframed small {
+  color: var(--blue);
+}
+
+/* Next release */
+.case-main .case-body .next {
+  margin-top: 0;
+  padding: 0;
+  border-top: 0;
+}
+.case-main .case-body .next > a.next-project {
+  padding: clamp(18px, 2vw, 24px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  transition: box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.case-main .case-body .next > a.next-project:hover {
+  box-shadow: var(--shadow-raise);
+  transform: translateY(-2px);
+}
+.case-main .case-body .next .next-preview {
+  border-radius: 14px;
+  background: #e6e9f1;
+}
+.case-main .case-body .next .next-copy span {
+  color: var(--muted);
+  font-weight: 700;
+}
+.case-main .case-body .next .next-copy h3 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.case-main .case-body .next .back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 18px;
+  color: var(--ink);
+  background: var(--panel);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-panel);
+}
+.case-main .case-body .next .back:hover {
+  color: var(--blue);
+}
+
+/* Section progress: a quiet white capsule */
+.case-progress {
+  background: var(--panel);
+  border: 0;
+  border-radius: 18px;
+  box-shadow: var(--shadow-raise);
+  backdrop-filter: none;
+}
+.case-progress a.active::before {
+  box-shadow: 0 0 0 4px var(--blue-tint);
+}
+
+.case-footer {
+  color: var(--muted);
+  background: transparent;
+}
+.case-footer .logo {
+  color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  .case-main {
+    padding-top: calc(var(--header-height) + 12px);
+  }
+  .case-main > .case-hero,
+  .case-main > .case-brief,
+  .case-main > .case-body > .case-summary,
+  .case-main > .case-body > .outcomes:not(:empty),
+  .case-main > .case-body > .gallery > .story-section,
+  .case-main > .case-body > .gallery > .impact {
+    padding: 24px 20px;
+    border-radius: var(--radius-panel);
+  }
+  .case-main .case-hero > .case-meta > div {
+    padding: 14px 0 0;
+  }
+}
+/* Version history world: context panel, spacing and call-outs without side stripes */
+.case-main > .case-body {
+  margin-top: 0;
+}
+.case-main > .case-body > .case-context {
+  margin-block: 0;
+  padding: clamp(26px, 3.4vw, 48px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+}
+
+body[data-project] .feedback-record,
+body[data-project] .flow-callout,
+body[data-project] .public-concept-note,
+body[data-project] .tbm-delivery-callout {
+  padding: 20px 24px;
+  background: var(--blue-tint);
+  border: 0;
+  border-left: 0;
+  border-radius: 16px;
+}
+
+@media (max-width: 800px) {
+  .case-main > .case-body > .case-context {
+    padding: 24px 20px;
+  }
+}
+/* Panels stack with one tight rhythm; the panel padding carries the breathing room. */
+.case-main {
+  gap: 20px;
+  padding-top: calc(var(--header-height) + 24px);
+}
+.case-main > .case-hero,
+.case-main > .case-brief,
+.case-main > .case-body > .case-context,
+.case-main > .case-body > .gallery > .story-section,
+.case-main > .case-body > .gallery > .impact {
+  margin-block: 0;
+}
+.case-main > .case-body,
+.case-main > .case-body > .gallery {
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .case-main {
+    gap: 12px;
+    padding-top: calc(var(--header-height) + 12px);
+  }
+  .case-main > .case-body,
+  .case-main > .case-body > .gallery {
+    gap: 12px;
+  }
+}
+/* Version history world: legible labels on tinted and blue fields; the heading carries the brief on its own. */
+body[data-project] .impact-flow small {
+  color: var(--muted);
+}
+body[data-project] .impact-flow .after small {
+  color: #fff;
+}
+body[data-project] .case-brief .brief-title-group > p {
+  display: none;
+}
+
+/* Context facts: one sunk box with inner horizontal padding; rows divided by hairlines. */
+body[data-project] .case-main .context-facts {
+  padding: 4px 24px;
+  background: var(--panel-sunk);
+  border-top: 0;
+  border-radius: var(--radius-card);
+}
+body[data-project] .case-main .context-facts > div {
+  padding: 15px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+body[data-project] .case-main .context-facts > div:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  body[data-project] .case-main .context-facts {
+    padding: 2px 18px;
   }
 }
 

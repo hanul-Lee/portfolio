@@ -10,8 +10,8 @@ module.exports=function inspectLayout(){
       if(s.objectFit==='fill' && r.height && Math.abs(r.width/r.height-img.naturalWidth/img.naturalHeight) > .04) issues.push(`distorted image: ${img.getAttribute('src')}`);
     }
     const loaded=[...document.fonts].filter(f => f.status==='loaded').map(f=>f.family.replaceAll('"',''));
-    for(const font of ['Manrope','Noto Sans KR']) if(!loaded.includes(font)) issues.push(`font not loaded: ${font}`);
-    const hero=document.querySelector('.case-hero'), body=document.querySelector('.case-body');
+    for(const font of ['Manrope','SUIT']) if(!loaded.includes(font)) issues.push(`font not loaded: ${font}`);
+    const hero=document.querySelector('.case-hero'), body=document.querySelector('.case-context')||document.querySelector('.case-body');
     if(hero && body) {
       const edge=e=>e.getBoundingClientRect().left+parseFloat(getComputedStyle(e).paddingLeft);
       if(Math.abs(edge(hero)-edge(body))>1) issues.push('case hero/body misaligned');

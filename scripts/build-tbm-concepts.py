@@ -58,7 +58,7 @@ def icon(x,y,name,color=MUTED,size=22):
     }
     return f'<path d="{paths[name]}" transform="translate({x} {y}) scale({size/24})" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
 def row(y,title,sub,right='',kind='record',color=GREEN):
-    return rect(24,y,40,40,'#edf1eb',12)+icon(33,y+9,kind,color)+t(80,y+16,title,16,INK,600)+t(80,y+39,sub,13,MUTED)+(t(336,y+22,right,14,color,600).replace('x="336"','x="336" text-anchor="end"') if right else icon(341,y+10,'chevron','#a6aea3',18))
+    return rect(24,y,40,40,'#edf1eb',12)+icon(33,y+9,kind,color)+t(80,y+16,title,16,INK,600)+t(80,y+39,sub,13,MUTED)+(t(366,y+26,right,14,color,600).replace('x="366"','x="366" text-anchor="end"') if right else icon(341,y+10,'chevron','#a6aea3',18))
 def info(y,label,value):
     return t(24,y,label,15,MUTED)+t(366,y,value,16,INK,600).replace('x="366"','x="366" text-anchor="end"')
 def input_field(y,label,value):
@@ -88,7 +88,7 @@ a+=line(24,602,366,602)+info(636,'책임자 확인','확인 대기')+button(716,
 mobile('tbm-record','fieldnote','오늘의 안전 기록','확인한 항목을 선택해 주세요.',a,back=True)
 a=rect(24,196,342,92,'#f3f5f0',16)+rect(44,216,48,48,'#e1ebdd',24)+icon(57,229,'user',GREEN)+t(110,233,'이도경',18,INK,700)+t(110,260,'안전관리팀 · 기록 담당',14,MUTED)+header_section(337,'기록 확인에 쓸 표시')+t(24,370,'직접 서명 대신 예시 기호를 등록해요.',15,MUTED)+rect(24,400,342,174,'#f6f7f3',16,LINE)+t(195,495,'SAMPLE',30,'#a6aea3',500).replace('x="195"','x="195" text-anchor="middle"')+t(24,609,'등록한 표시는 기록 확인 단계에 사용돼요.',14,MUTED)+button(716,'확인 표시 저장하기',GREEN)
 mobile('tbm-profile','fieldnote','내 확인 표시','필요할 때 언제든 바꿀 수 있어요.',a,back=True)
-a=rect(158,248,74,74,'#e8efe4',37)+icon(178,268,'check',GREEN,34)+t(195,381,'확인 표시를 저장했어요',25,INK,700).replace('x="195"','x="195" text-anchor="middle"')+t(195,420,'이제 오늘의 안전 기록을 작성할 수 있어요.',15,MUTED).replace('x="195"','x="195" text-anchor="middle"')+rect(24,486,342,104,'#f3f5f0',16)+t(44,521,'오늘의 기록',14,MUTED)+t(44,556,'모래빛 실증센터 · A팀',17,INK,600)+button(716,'안전 기록으로 돌아가기',GREEN)
+a=rect(158,248,74,74,'#e8efe4',37)+icon(178,268,'check',GREEN,34)+t(195,381,'확인 표시를 저장했어요',25,INK,700).replace('x="195"','x="195" text-anchor="middle"')+t(195,420,'이제 오늘의 안전 기록을 작성할 수 있어요.',15,MUTED).replace('x="195"','x="195" text-anchor="middle"')+rect(24,486,342,104,'#f3f5f0',16)+t(44,527,'오늘의 기록',14,MUTED)+t(44,560,'모래빛 실증센터 · A팀',17,INK,600)+button(716,'안전 기록으로 돌아가기',GREEN)
 mobile('tbm-saved','fieldnote','저장 완료','',a,back=True)
 # Desktop: dark bento workspace. Display numerals, glowing confirmation flow, gauge and toggles —
 # every element visualises data the journal already holds (participants, times, checks, fields).
@@ -112,7 +112,7 @@ def dicon(x,y,name,color=DM,size=20):
 DEFS=('<defs><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>'
  '<linearGradient id="band" x1="0" x2="1"><stop offset="0" stop-color="#46d38b" stop-opacity="0"/><stop offset="1" stop-color="#46d38b" stop-opacity=".35"/></linearGradient>'
  '<linearGradient id="tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18201c"/><stop offset="1" stop-color="#121815"/></linearGradient>'
- '<radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#46d38b" stop-opacity=".22"/><stop offset="1" stop-color="#46d38b" stop-opacity="0"/></radialGradient></defs>')
+ '<linearGradient id="paperfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121815" stop-opacity="0"/><stop offset="1" stop-color="#121815" stop-opacity=".95"/></linearGradient><radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#46d38b" stop-opacity=".22"/><stop offset="1" stop-color="#46d38b" stop-opacity="0"/></radialGradient></defs>')
 def tile(x,y,w,h,r=18):return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="url(#tile)" stroke="{DL}"/>'
 def tag(x,y,label,fg=DG,bg=DGD,w=None):
  w=w or sum(6 if c==' ' else (8 if c.isascii() else 13) for c in label)+24
@@ -174,7 +174,7 @@ for i,label in enumerate(['보호구 착용 확인','이동 동선 공유','작�
  y=704+i*82;a+=rect(672,y,396,66,D2,12,DL)+icon(690,y+21,'check',DG,24)+t(728,y+40,label,15,DT,600)+toggle(1000,y+19,True)
 # Timeline tile
 a+=tile(1120,620,456,356)+t(1152,668,'기록 타임라인',18,DT,700)
-tl=[('07:30','일지 공유','이도경',DG),('07:42','확인','이도경',DG),('07:45','확인','정하준',DG),('07:48','확인','한서윤 외 5명',DG),('—','확인 대기','윤지안',DA)]
+tl=[('07:30','일지 공유','이도경',DG),('07:42','확인','이도경',DG),('07:45','확인','정하준',DG),('07:48','확인','오민재 외 5명',DG),('—','확인 대기','윤지안',DA)]
 a+=vline(1166,712,928,'#2c3832')
 for i,(tm,what,who,c) in enumerate(tl):
  y=712+i*54;a+=f'<circle cx="1166" cy="{y}" r="6" fill="{D1}" stroke="{c}" stroke-width="3"/>'+t(1188,y+5,tm,14,DT,600)+t(1256,y+5,what,14,c if c==DA else DT,600)+right(1544,y+5,who,13,DM)
@@ -207,7 +207,7 @@ a+=t(128,948,'공개용으로 작성한 가상 문서',12,'#5d6962')
 # Paper
 a+=f'<rect x="440" y="168" width="760" height="808" rx="18" fill="{D1}" stroke="{DL}"/>'+f'<ellipse cx="820" cy="560" rx="340" ry="360" fill="url(#halo)" opacity=".5"/>'
 a+=f'<clipPath id="pc"><rect x="440" y="168" width="760" height="808" rx="18"/></clipPath><g clip-path="url(#pc)">'
-a+=rect(490,204,660,820,'white',6);X=556
+a+=rect(490,204,660,736,'white',6);X=556
 a+=t(X,262,'FIELDNOTE / 안전관리팀',12,'#2e6247',700)+right(1084,262,'01',12,'#a6aea3',600)+t(X,314,'작업 전 안전 안내',30,'#1d2a22',750)+t(X,346,'모래빛 실증센터 · A팀 · 오전 작업',14,'#68756c')+f'<path d="M{X} 372H1084" stroke="#e3e8df"/>'
 a+=t(X,416,'1',19,'#2e6247',700)+t(X+28,416,'작업 전 확인 사항',19,'#1d2a22',700)
 y=460

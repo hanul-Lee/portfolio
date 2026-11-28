@@ -8,7 +8,7 @@ let base;
   await withSite(async url=>{base=url;await withBrowsers(async(engine,browser)=>{
     const page = await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
     await page.goto(base);
-    assert.equal(await page.locator('.work-case').count(), 4);
+    assert.equal(await page.locator('.release').count(), 4);
     assert.equal(await page.locator('.more-work details').count(), 0);
     assert.equal(await page.locator('.more-project:visible').count(), moreProjectCount);
     await page.locator('.more-project').first().focus();

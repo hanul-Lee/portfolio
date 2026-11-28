@@ -42,6 +42,11 @@ npm run build
 npm run preview
 ```
 
+작업 중에는 `npm run dev`를 쓰면 `src/`·`scripts/`를 저장할 때마다 자동으로 다시 빌드하고 열린 브라우저를 새로고침합니다(http://127.0.0.1:4173).
+홈: http://127.0.0.1:4173
+카카오 정산 상세 페이지: http://127.0.0.1:4173/project-settle.html
+이 서버는 자동 새로고침이 없어요. 파일을 고친 뒤에는 npm run build를 다시 실행하고 브라우저를 새로고침해야 반영돼요.
+
 `http://127.0.0.1:4173`에서 확인합니다. 기본 포트는 `PORT`로 바꿀 수 있습니다. 빌드는 `.venv-fonts/bin/python`을 자동으로 찾으며, 다른 Python은 `FONT_PYTHON`, 다른 Chrome은 `CHROME_PATH`로 지정합니다. 의존성 설치 후 빌드는 로컬 파일만 사용합니다.
 
 ## 수정 위치

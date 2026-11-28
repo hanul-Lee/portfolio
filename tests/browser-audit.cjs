@@ -16,7 +16,7 @@ async function audit(page, label, file, width) {
   const issues = await page.evaluate(inspectLayout);
   await page.evaluate(() => window.scrollTo({top:1600,behavior:'instant'}));
   const header=await page.locator('.nav').boundingBox();
-  if(Math.abs(header.y)>1 || header.height!==(width<=800?68:82)) issues.push('header position/height');
+  if(Math.abs(header.y)>1 || header.height!==(width<=800?64:72)) issues.push('header position/height');
   if([390,844,1100].includes(width)) {
     await page.locator('.menu').click();
     const menu=await page.locator('#primary-nav').boundingBox();

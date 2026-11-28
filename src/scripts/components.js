@@ -4,7 +4,7 @@
   const homeLink = isHome ? '#top' : 'index.html';
   const sectionLink = (id) => `${isHome ? '' : 'index.html'}#${id}`;
   const pdfLink = 'assets/portfolio.pdf?v=20261124-refined';
-  const logo = `<a class="logo" href="${homeLink}">HANUL<span>●</span></a>`;
+  const logo = `<a class="logo" href="${homeLink}">HANUL<span aria-hidden="true">●</span></a>`;
 
   document.querySelector('[data-site-header]:empty')?.insertAdjacentHTML('afterbegin', `
     ${logo}

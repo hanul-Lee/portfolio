@@ -70,7 +70,7 @@ const renderVisuals = (items, label = "설계 자료", title = "실제 화면과
         (item, index) => `
       <figure class="${index === 0 ? "featured" : ""} ${item[3] || ""}">
         <div class="visual-frame ${item[3] || ""}"><img src="${item[0]}" alt="${item[1]}" loading="lazy" decoding="async"></div>
-        <figcaption><b>${item[1]}</b><span>${item[2]}</span><small>${item[0].includes("/public-concepts/") ? "공개용 재설계 · 가상 데이터" : item[0].includes("/20261024/") ? "포트폴리오 설명용 재구성" : "해당 프로젝트 설계 자료"}</small></figcaption>
+        <figcaption><b>${item[1]}</b><span>${item[2]}</span><small>${item[0].includes("/public-concepts/") ? "공개용 재가공 · 가상 데이터" : item[0].includes("/20261024/") ? "포트폴리오 설명용 재구성" : "해당 프로젝트 설계 자료"}</small></figcaption>
       </figure>`,
       )
       .join("")}</div>
@@ -176,7 +176,7 @@ const renderEvidenceSlots = (item, number) => `
     <header><p>${number} ${item.label}</p><h3>${item.title}</h3></header>
     ${item.intro ? `<p class="block-intro">${item.intro}</p>` : ""}
     <div class="evidence-slot-grid">${item.slots
-      .map(([title, text, rows]) => `<figure class="evidence-slot">${rows ? `<dl class="slot-rows">${rows.map(([k, v, swatch]) => `<div>${swatch ? `<i style="background:${swatch}" aria-hidden="true"></i>` : ""}<dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : `<div class="slot-frame"><span>자료 추가 예정</span></div>`}<figcaption><b>${title}</b><span>${text}</span></figcaption></figure>`)
+      .map(([title, text, rows]) => `<figure class="evidence-slot">${Array.isArray(rows) ? `<dl class="slot-rows">${rows.map(([k, v, swatch]) => `<div>${swatch ? `<i style="background:${swatch}" aria-hidden="true"></i>` : ""}<dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>` : rows ? `<a class="slot-frame slot-image" href="${rows}" target="_blank" rel="noopener noreferrer" aria-label="${title} 크게 보기 (새 창)"><img src="${rows}" alt="${title} · 설명용 재구성" loading="lazy" decoding="async" width="800" height="600"></a>` : `<div class="slot-frame"><span>자료 추가 예정</span></div>`}<figcaption><b>${title}</b><span>${text}</span></figcaption></figure>`)
       .join("")}</div>
     ${item.note ? `<p class="block-note">${item.note}</p>` : ""}
   </article>`;
@@ -196,7 +196,7 @@ const decisionNotes = {
   "intranet": [
     ["팀 참여", "디자이너 팀에서 기획·UI·퍼블리싱에 참여했습니다."],
     ["실제 범위", "회의실 현황 → 예약 입력 / 문서 상태 → 근태 신청 입력"],
-    ["확인 범위", "미배포 · 팀 내부 설계·구현 확인"]
+    ["공개용 재가공", "홈 우선순위와 예약 충돌 상태는 공개용 재가공 과정에서 다시 설계했습니다."]
   ]
 };
 
@@ -349,7 +349,7 @@ if (p) {
       <div class="brief-scope"><strong>${p.deliverySummary && study.briefFacts ? "직접 담당" : "결과의 범위"}</strong><p>${p.deliverySummary && study.briefFacts ? p.contribution : p.deliverySummary || p.outcomeBasis}</p></div>
     </section>`);
   if (["tbm", "intranet", "measure", "dashboard", "kanvan", "intranet-day", "settle"].includes(slug)) {
-    document.querySelector(".case-brief").insertAdjacentHTML("beforeend", `<aside class="public-concept-note" aria-label="공개 자료 안내"><strong>${study.publicNotice?.title || "공개용 재설계 · 가상 데이터"}</strong><p>${study.publicNotice?.text || "프로젝트 경험을 설명하기 위해 UI를 새로 디자인했습니다. 브랜드·인물·조직·현장·일정·문서·수치·그래프는 모두 가상이며, 실제 운영 화면과 내부 자료를 사용하지 않았습니다. 프로젝트 이력과 담당 역할은 실제 경험을 기준으로 기술했습니다."}</p></aside>`);
+    document.querySelector(".case-brief").insertAdjacentHTML("beforeend", `<aside class="public-concept-note" aria-label="공개 자료 안내"><strong>${study.publicNotice?.title || "공개용 재가공 · 가상 데이터"}</strong><p>${study.publicNotice?.text || "프로젝트 경험을 설명하기 위해 UI를 새로 디자인했습니다. 브랜드·인물·조직·현장·일정·문서·수치·그래프는 모두 가상이며, 실제 운영 화면과 내부 자료를 사용하지 않았습니다. 프로젝트 이력과 담당 역할은 실제 경험을 기준으로 기술했습니다."}</p></aside>`);
   }
   // 배경·결과 요약은 한 영역으로 묶어 외부 간격을 중복하지 않는다.
   const context = document.createElement("section");

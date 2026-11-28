@@ -6,7 +6,7 @@ for(const key of Object.keys(projects.projects)){
  const html=vm.runInNewContext(`const {projects,caseStudies,projectOrder}=${JSON.stringify(projects)};\n`+prefix+`\nconst slug=${JSON.stringify(key)};renderStudy(caseStudies[slug])`);
  assert.ok(!html.includes('undefined'),key+' undefined output');
  if(key==='platform')assert.ok(html.indexOf('id="solution"')<html.indexOf('id="decision"'));
- if(key==='tbm')assert.ok(html.includes('사용 규모와 작성 시간 변화는 운영 중 현장 의견을 기준으로 정리했습니다.'));
+ if(key==='tbm')assert.ok(html.includes('효과를 확인하는 방법'));
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);assert.equal(new Set(ids).size,ids.length,key+' duplicate IDs');
  for(const m of html.matchAll(/src="([^"]+)"/g))assert.ok(fs.existsSync(path.join(dist,m[1].split(/[?#]/)[0])),key+' missing '+m[1]);
  for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),key+' broken section '+m[1]);

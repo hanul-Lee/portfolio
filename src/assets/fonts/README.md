@@ -1,6 +1,6 @@
 # 사이트 공통 글꼴
 
-Manrope와 Noto Sans KR의 400–800 가변 WOFF2 글꼴을 자체 호스팅합니다. 기존 Google Fonts CSS의 unicode-range를 보존하므로 브라우저는 페이지에 필요한 언어 조각만 내려받습니다. 전체 파일은 약 3.7 MB이며 페이지마다 모두 다운로드하지 않습니다.
+Manrope와 Noto Sans KR의 400–800 가변 WOFF2 글꼴, SUIT 100–900 가변 글꼴(SUIT-OFL.txt)을 자체 호스팅합니다. 기존 Google Fonts CSS의 unicode-range를 보존하므로 브라우저는 페이지에 필요한 언어 조각만 내려받습니다. 전체 파일은 약 3.7 MB이며 페이지마다 모두 다운로드하지 않습니다.
 
 출처: https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Noto+Sans+KR:wght@400..800&display=swap (2026-09-30)
 

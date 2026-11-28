@@ -189,36 +189,36 @@
     ]
   },
   "assets/cases/after-pet.png": {
-    "src": "assets/cases/after-pet-657w.webp",
-    "width": 657,
-    "height": 1366,
+    "src": "assets/cases/after-pet-610w.webp",
+    "width": 610,
+    "height": 1320,
     "variants": [
       {
         "src": "assets/cases/after-pet-480w.webp",
         "width": 480,
-        "height": 998
+        "height": 1039
       },
       {
-        "src": "assets/cases/after-pet-657w.webp",
-        "width": 657,
-        "height": 1366
+        "src": "assets/cases/after-pet-610w.webp",
+        "width": 610,
+        "height": 1320
       }
     ]
   },
   "assets/cases/before-pet.png": {
-    "src": "assets/cases/before-pet-657w.webp",
-    "width": 657,
-    "height": 1366,
+    "src": "assets/cases/before-pet-610w.webp",
+    "width": 610,
+    "height": 1320,
     "variants": [
       {
         "src": "assets/cases/before-pet-480w.webp",
         "width": 480,
-        "height": 998
+        "height": 1039
       },
       {
-        "src": "assets/cases/before-pet-657w.webp",
-        "width": 657,
-        "height": 1366
+        "src": "assets/cases/before-pet-610w.webp",
+        "width": 610,
+        "height": 1320
       }
     ]
   },
@@ -250,46 +250,46 @@
     ]
   },
   "assets/cases/pet-9.png": {
-    "src": "assets/cases/pet-9-646w.webp",
-    "width": 646,
-    "height": 1344,
+    "src": "assets/cases/pet-9-600w.webp",
+    "width": 600,
+    "height": 1298,
     "variants": [
       {
         "src": "assets/cases/pet-9-480w.webp",
         "width": 480,
-        "height": 999
+        "height": 1038
       },
       {
-        "src": "assets/cases/pet-9-646w.webp",
-        "width": 646,
-        "height": 1344
+        "src": "assets/cases/pet-9-600w.webp",
+        "width": 600,
+        "height": 1298
       }
     ]
   },
   "assets/cases/platform-9.png": {
-    "src": "assets/cases/platform-9-2560w.webp",
-    "width": 2560,
-    "height": 1309,
+    "src": "assets/cases/platform-9-2493w.webp",
+    "width": 2493,
+    "height": 1225,
     "variants": [
       {
         "src": "assets/cases/platform-9-480w.webp",
         "width": 480,
-        "height": 245
+        "height": 236
       },
       {
         "src": "assets/cases/platform-9-960w.webp",
         "width": 960,
-        "height": 491
+        "height": 472
       },
       {
         "src": "assets/cases/platform-9-1920w.webp",
         "width": 1920,
-        "height": 982
+        "height": 943
       },
       {
-        "src": "assets/cases/platform-9-2560w.webp",
-        "width": 2560,
-        "height": 1309
+        "src": "assets/cases/platform-9-2493w.webp",
+        "width": 2493,
+        "height": 1225
       }
     ]
   },
@@ -843,6 +843,54 @@
         "src": "assets/cases/pet-screens-2180w.webp",
         "width": 2180,
         "height": 1410
+      }
+    ]
+  },
+  "assets/cases/public-concepts/ds-tokens-json.svg": {
+    "src": "assets/cases/public-concepts/ds-tokens-json.svg",
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/ds-tokens-json.svg",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  },
+  "assets/cases/public-concepts/ds-guide-md.svg": {
+    "src": "assets/cases/public-concepts/ds-guide-md.svg",
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/ds-guide-md.svg",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  },
+  "assets/cases/public-concepts/ds-menus.svg": {
+    "src": "assets/cases/public-concepts/ds-menus.svg",
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/ds-menus.svg",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  },
+  "assets/cases/public-concepts/ds-ai-fixes.svg": {
+    "src": "assets/cases/public-concepts/ds-ai-fixes.svg",
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "src": "assets/cases/public-concepts/ds-ai-fixes.svg",
+        "width": 800,
+        "height": 600
       }
     ]
   }

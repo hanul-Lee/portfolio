@@ -53,3 +53,18 @@ if (menu && nav) {
     menuBreakpoint.addListener(resetMenuAtBreakpoint);
   }
 }
+
+// Version history rail: mark the release currently in view.
+const railLinks = [...document.querySelectorAll('.release-rail a[href^="#"]')];
+if (railLinks.length && 'IntersectionObserver' in window) {
+  const targets = railLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const setCurrent = id => railLinks.forEach(link => {
+    if (link.getAttribute('href') === '#' + id) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  });
+  const railObserver = new IntersectionObserver(entries => {
+    const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    if (visible) setCurrent(visible.target.id);
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  targets.forEach(target => railObserver.observe(target));
+}

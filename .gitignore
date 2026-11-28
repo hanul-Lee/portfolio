@@ -11,6 +11,8 @@ portfolio_review_*/
 
 # Local original images and unused backup assets
 /.local/
+# Raw design sources and screen recordings (only optimized images go to src/assets)
+/local/
 
 # Local Python environment for font subsetting
 /.venv-fonts/
@@ -45,3 +47,8 @@ __pycache__/
 npm-debug.log*
 Thumbs.db
 /.claude/settings.local.json
+
+# Local design-tool context (impeccable) and internal positioning notes
+/.impeccable/
+/PRODUCT.md
+/DESIGN.md

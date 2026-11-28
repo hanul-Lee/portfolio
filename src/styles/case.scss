@@ -535,7 +535,7 @@ body[data-project] {
 }
 .impact-flow small {
   margin-bottom: 18px;
-  color: #939ba8;
+  color: #5b6270;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -604,7 +604,7 @@ body[data-project] {
     border-color: #e5e8eb;
 
     span {
-      color: #6b7684;
+      color: #5b6270;
       opacity: 1;
     }
   }
@@ -653,7 +653,7 @@ body[data-project] {
         color: #191f28;
       }
       span {
-        color: #6b7684;
+        color: #5b6270;
       }
     }
   }
@@ -700,10 +700,10 @@ body[data-project] {
   }
 
   small {
-    color: #6b7684;
+    color: #5b6270;
   }
   p {
-    color: #6b7684;
+    color: #5b6270;
   }
 }
 
@@ -732,7 +732,7 @@ body[data-project] {
     color: var(--case-text-accent, #3b389f);
   }
   p {
-    color: #6b7684;
+    color: #5b6270;
   }
 }
 
@@ -768,7 +768,7 @@ body[data-project] {
   }
 
   .impact-note {
-    color: #6b7684;
+    color: #5b6270;
   }
 }
 
@@ -845,7 +845,7 @@ body[data-project] {
 }
 
 .context-facts small {
-  color: #6b7684;
+  color: #5b6270;
   font-size: 12px;
   font-weight: 600;
 }
@@ -875,7 +875,7 @@ body[data-project] {
 
   > span {
     align-self: center;
-    color: #6b7684;
+    color: #5b6270;
   }
 
   p {
@@ -899,7 +899,7 @@ body[data-project] {
 .reflection-grid small {
   display: block;
   margin-bottom: 14px;
-  color: #6b7684;
+  color: #5b6270;
   font-size: 12px;
   font-weight: 700;
 }
@@ -1038,14 +1038,14 @@ body[data-project] {
 
     span {
       grid-column: 1;
-      color: #6b7684;
+      color: #5b6270;
       font-size: var(--type-caption);
       line-height: 1.65;
     }
 
     small {
       grid-column: 1;
-      color: #6b7684;
+      color: #5b6270;
       font-size: 10px;
       letter-spacing: 0.04em;
     }
@@ -1131,7 +1131,7 @@ body[data-project] {
   small {
     display: block;
     margin: 22px 0 7px;
-    color: #6b7684;
+    color: #5b6270;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -1152,6 +1152,17 @@ body[data-project="dashboard"] {
 }
 
 body[data-project="pet"] {
+  /* Portrait app screens need a portrait stage, otherwise they shrink to a thumbnail. */
+  .comparison-image {
+    aspect-ratio: 3 / 4;
+    max-height: 520px;
+    padding: 20px 0;
+    img {
+      inset: 20px 0;
+      height: calc(100% - 40px);
+      filter: drop-shadow(0 10px 24px rgb(27 47 84 / 0.16));
+    }
+  }
   .reframe-flow .reframed {
     background: #f5ead4;
   }
@@ -1194,7 +1205,7 @@ body[data-project="tbm"] {
   a {
     position: relative;
     padding-left: 11px;
-    color: #6b7684;
+    color: #5b6270;
     font-size: 10px;
     font-weight: 600;
     transition: color 0.2s ease;
@@ -1793,7 +1804,9 @@ body[data-project="tbm"] {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  width: max-content;
   min-height: 30px;
+  white-space: nowrap;
 }
 .image-zoom svg {
   flex: 0 0 14px;
@@ -1860,9 +1873,12 @@ body[data-project="tbm"] {
   .brief-heading a {
     border-radius: var(--radius-control);
   }
-  .comparison-image,
   .mock-window.final-mockup.landscape img {
     border-radius: var(--radius-control);
+  }
+  /* A pill radius here clipped the screenshot corners and the zoom button. */
+  .comparison-image {
+    border-radius: var(--radius-small);
   }
 }
 .case-progress {
@@ -2002,7 +2018,7 @@ body[data-project="dashboard"] .case-main .evidence-grid > div:last-child {
     padding-right: 48px;
   }
   > a:first-child > span {
-    color: #667080;
+    color: #5b6270;
     font-size: 12px;
   }
   > a:first-child::after {
@@ -2287,7 +2303,7 @@ body[data-project="dashboard"] .case-main .evidence-grid > div:last-child {
       font-size: 11px;
       letter-spacing: 0;
       line-height: 1.7;
-      color: #637080;
+      color: #5b6270;
     }
     b {
       font-size: 13px;
@@ -2532,7 +2548,7 @@ body[data-project="dashboard"] .case-main .evidence-grid > div:last-child {
 .decision-detail .comparison-context {
   margin: 12px 0 0;
   max-width: 760px;
-  color: #637080;
+  color: #5b6270;
   font-size: 13px;
   line-height: 1.85;
 }
@@ -2557,7 +2573,7 @@ body[data-project="dashboard"] .case-main .evidence-grid > div:last-child {
   }
   > p:last-child {
     margin: 16px 0 0;
-    color: #637080;
+    color: #5b6270;
     font-size: 14px;
     line-height: 1.85;
   }
@@ -2664,7 +2680,8 @@ body[data-project="dashboard"] .project-visuals figure .visual-frame {
   aspect-ratio: auto;
 }
 body[data-project="intranet"] .project-visuals figure .visual-frame,
-body[data-project="measure"] .project-visuals figure .visual-frame {
+body[data-project="measure"] .project-visuals figure .visual-frame,
+body[data-project="tbm"] .project-visuals figure .visual-frame {
   height: 440px;
   max-height: none;
   aspect-ratio: auto;
@@ -2681,7 +2698,8 @@ body[data-project="measure"] .project-visuals figure .visual-frame {
     height: 220px;
   }
   body[data-project="intranet"] .project-visuals figure .visual-frame,
-  body[data-project="measure"] .project-visuals figure .visual-frame {
+  body[data-project="measure"] .project-visuals figure .visual-frame,
+  body[data-project="tbm"] .project-visuals figure .visual-frame {
     height: 380px;
   }
 }
@@ -2725,7 +2743,7 @@ body[data-project="tbm"] #evidence .impact-flow > div:first-child > strong {
   }
   .tbm-source-note {
     margin: 16px 0 0;
-    color: #637080;
+    color: #5b6270;
     font-size: 14px;
     line-height: 1.8;
   }
@@ -3042,7 +3060,7 @@ body[data-project="kanvan"] {
     min-width: 0;
   }
   .next-copy > span {
-    color: #667080;
+    color: #5b6270;
     font-size: 12px;
   }
   .next-copy h3 {
@@ -3110,7 +3128,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
   }
   .block-note {
     margin: 20px 0 0;
-    color: #637080;
+    color: #5b6270;
     font-size: 14px;
     line-height: 1.8;
     word-break: keep-all;
@@ -3218,7 +3236,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
     content: "비교 기준";
     align-self: center;
     margin-right: 4px;
-    color: #637080;
+    color: #5b6270;
     font-size: 13px;
     font-weight: 700;
   }
@@ -3353,7 +3371,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
     border: 1px solid #cfd5dd;
     border-radius: 8px;
     background: #fff;
-    color: #8b95a3;
+    color: #5b6270;
     font-size: 16px;
   }
   p {
@@ -3380,7 +3398,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
   &.is-disabled .demo-field {
     border-color: #e4e7eb;
     background: #f1f3f5;
-    color: #b3bac4;
+    color: #666d7a;
   }
   &.is-readonly .demo-field {
     border-color: transparent;
@@ -3666,7 +3684,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
   }
   > p {
     margin: 0;
-    color: #637080;
+    color: #5b6270;
     font-size: 13px;
     line-height: 1.7;
   }
@@ -3681,7 +3699,7 @@ body[data-project="kanvan"] .case-main .case-hero .case-cover { background: #f2f
   height: 100%;
   border: 1px dashed #b9c0c9;
   border-radius: 8px;
-  color: #667080;
+  color: #5b6270;
   font-size: 12px;
 }
 body[data-project="settle"] {
@@ -3690,6 +3708,17 @@ body[data-project="settle"] {
     place-items: center;
     padding: 32px;
     background: #f6f3ec;
+  }
+  // The pending frames are taller than the image cap, so the cover grows with them instead of overflowing.
+  .case-main > .case-hero .case-cover {
+    max-height: none;
+  }
+}
+@media (max-width: 900px) {
+  // Keep the four cover frames on one row so the hero stays compact on phones.
+  .case-cover .mock-window.visual-pending ol {
+    grid-template-columns: repeat(var(--frames, 4), minmax(0, 1fr));
+    gap: 10px;
   }
 }
 @media (min-width: 901px) {
@@ -3702,16 +3731,24 @@ body[data-project="settle"] {
     > div:nth-child(n + 3) {
       border-top: 1px solid #e5e8eb;
     }
+    // 선 위 16px, 마지막 줄(03·04) 아래는 여백 없음
+    > div:not(:nth-last-child(-n + 2)) {
+      padding-bottom: 16px;
+    }
+    > div:nth-last-child(-n + 2) {
+      padding-bottom: 0;
+    }
   }
 }
 .evidence-slot-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px 20px;
 }
 .evidence-slot {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
   gap: 16px;
   min-width: 0;
   margin: 0;
@@ -3723,8 +3760,25 @@ body[data-project="settle"] {
     border-radius: 12px;
     background: #f7f8fa;
     span {
-      color: #7a8494;
+      color: #5b6270;
       font-size: 13px;
+    }
+  }
+  .slot-image {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #e3e6ea;
+    border-style: solid;
+    background: #f6f5f3;
+    align-self: start;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    &:focus-visible {
+      outline: 2px solid var(--case-text-accent);
+      outline-offset: 3px;
     }
   }
   .slot-rows {
@@ -3802,5 +3856,437 @@ body[data-project="settle"] {
     b {
       font-size: 12px;
     }
+  }
+}
+
+/* =====================================================================
+   World: version history (2026-11-28 redesign)
+   Each project page reads as one release: a white release header panel,
+   participation facts as a grouped list, and every section as a note card
+   on the cool grouped ground. One release blue replaces per-project accents.
+   `.impact-flow strong` declarations above are intentionally left untouched.
+   ===================================================================== */
+body[data-project] {
+  --case-accent: #1f5bff;
+  --case-text-accent: #1f5bff;
+  --blue: #1f5bff;
+  color: var(--ink);
+  background: var(--ground);
+}
+
+.case-main {
+  padding-top: calc(var(--header-height) + 24px);
+  padding-bottom: 40px;
+  background: transparent;
+
+  > .case-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    min-height: 0;
+    padding: clamp(26px, 3.4vw, 48px);
+    background: var(--panel);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .case-hero-copy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* The project number line reads as the release meta under the title, not as a kicker above it */
+  .case-hero .case-eyebrow {
+    order: 2;
+    align-self: flex-start;
+    margin: 0 0 18px;
+    padding: 5px 12px;
+    color: var(--muted);
+    background: var(--panel-sunk);
+    border-radius: var(--radius-control);
+    font-family: var(--font-num);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  .case-hero h1 {
+    order: 1;
+    margin: 0 0 14px;
+    font-size: var(--type-h1);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .case-hero .case-lead {
+    order: 3;
+    color: var(--ink);
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
+  }
+
+  .case-hero .case-result {
+    order: 4;
+    color: var(--muted);
+    font-size: var(--type-caption);
+    line-height: var(--leading-body);
+  }
+
+  .case-hero .case-hero-actions {
+    order: 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 0 18px;
+      color: var(--ink);
+      background: var(--panel-sunk);
+      border: 0;
+      border-radius: var(--radius-control);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
+
+      &:first-child {
+        color: #fff;
+        background: var(--blue);
+      }
+
+      &:hover {
+        color: var(--blue);
+        background: var(--blue-tint);
+      }
+
+      &:first-child:hover {
+        color: #fff;
+        background: var(--blue-deep);
+      }
+    }
+  }
+
+  .case-hero .case-cover {
+    padding: clamp(18px, 2vw, 28px);
+    background: #e6e9f1;
+    border-radius: var(--radius-card);
+  }
+
+  /* Participation facts: one grouped list with hairlines */
+  .case-hero > .case-meta {
+    gap: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+
+    > div {
+      padding: 18px 20px 4px 0;
+    }
+
+    span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+      opacity: 1;
+    }
+
+    b {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+  }
+
+  > .case-brief {
+    padding: clamp(24px, 3vw, 40px);
+    background: var(--panel);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+
+    h2 {
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .brief-facts > div + div {
+      border-left-color: var(--line);
+    }
+
+    .brief-heading a {
+      color: var(--ink);
+      background: var(--panel-sunk);
+      border: 0;
+      border-radius: var(--radius-control);
+
+      &:hover {
+        color: var(--blue);
+        background: var(--blue-tint);
+      }
+    }
+  }
+
+  > .case-body {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    > .case-summary,
+    > .outcomes:not(:empty),
+    > .gallery > .story-section,
+    > .gallery > .impact {
+      margin-block: 0;
+      padding: clamp(26px, 3.4vw, 48px);
+      background: var(--panel);
+      border-radius: var(--radius-panel);
+      box-shadow: var(--shadow-panel);
+    }
+
+    > .gallery {
+      gap: 0;
+    }
+
+    .case-summary h2,
+    .story-section h3,
+    .story-section header h3,
+    .solution-copy h3 {
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .outcomes .outcome {
+      border-top-color: var(--line);
+    }
+  }
+
+  .case-section-label,
+  .story-section header > p,
+  .solution-copy > p {
+    color: var(--blue);
+    font-family: var(--font-num), var(--font-ui);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Inner note boxes share one sunk tone instead of per-project warm tints */
+body[data-project] {
+  .evidence-grid > div,
+  .reuse-split > div,
+  .evidence-basis > div,
+  .reframe-flow .reframed,
+  .comparison-image,
+  .input-state-grid {
+    background: var(--panel-sunk);
+    border-color: var(--line);
+  }
+
+  .reframe-flow .reframed small {
+    color: var(--blue);
+  }
+}
+
+/* Next release */
+.case-main .case-body .next {
+  margin-top: 0;
+  padding: 0;
+  border-top: 0;
+
+  > a.next-project {
+    padding: clamp(18px, 2vw, 24px);
+    background: var(--panel);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    transition: box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+
+    &:hover {
+      box-shadow: var(--shadow-raise);
+      transform: translateY(-2px);
+    }
+  }
+
+  .next-preview {
+    border-radius: 14px;
+    background: #e6e9f1;
+  }
+
+  .next-copy span {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .next-copy h3 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 18px;
+    color: var(--ink);
+    background: var(--panel);
+    border-radius: var(--radius-control);
+    box-shadow: var(--shadow-panel);
+
+    &:hover {
+      color: var(--blue);
+    }
+  }
+}
+
+/* Section progress: a quiet white capsule */
+.case-progress {
+  background: var(--panel);
+  border: 0;
+  border-radius: 18px;
+  box-shadow: var(--shadow-raise);
+  backdrop-filter: none;
+
+  a.active::before {
+    box-shadow: 0 0 0 4px var(--blue-tint);
+  }
+}
+
+.case-footer {
+  color: var(--muted);
+  background: transparent;
+
+  .logo {
+    color: var(--ink);
+  }
+}
+
+@media (max-width: 800px) {
+  .case-main {
+    padding-top: calc(var(--header-height) + 12px);
+
+    > .case-hero,
+    > .case-brief,
+    > .case-body > .case-summary,
+    > .case-body > .outcomes:not(:empty),
+    > .case-body > .gallery > .story-section,
+    > .case-body > .gallery > .impact {
+      padding: 24px 20px;
+      border-radius: var(--radius-panel);
+    }
+
+    .case-hero > .case-meta > div {
+      padding: 14px 0 0;
+    }
+  }
+}
+
+/* Version history world: context panel, spacing and call-outs without side stripes */
+.case-main {
+
+  > .case-body {
+    margin-top: 0;
+
+    > .case-context {
+      margin-block: 0;
+      padding: clamp(26px, 3.4vw, 48px);
+      background: var(--panel);
+      border-radius: var(--radius-panel);
+      box-shadow: var(--shadow-panel);
+    }
+  }
+}
+
+body[data-project] {
+  .feedback-record,
+  .flow-callout,
+  .public-concept-note,
+  .tbm-delivery-callout {
+    padding: 20px 24px;
+    background: var(--blue-tint);
+    border: 0;
+    border-left: 0;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  .case-main > .case-body > .case-context {
+    padding: 24px 20px;
+  }
+}
+
+/* Panels stack with one tight rhythm; the panel padding carries the breathing room. */
+.case-main {
+  gap: 20px;
+  padding-top: calc(var(--header-height) + 24px);
+
+  > .case-hero,
+  > .case-brief,
+  > .case-body > .case-context,
+  > .case-body > .gallery > .story-section,
+  > .case-body > .gallery > .impact {
+    margin-block: 0;
+  }
+
+  > .case-body,
+  > .case-body > .gallery {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .case-main {
+    gap: 12px;
+    padding-top: calc(var(--header-height) + 12px);
+
+    > .case-body,
+    > .case-body > .gallery {
+      gap: 12px;
+    }
+  }
+}
+
+/* Version history world: legible labels on tinted and blue fields; the heading carries the brief on its own. */
+body[data-project] {
+  .impact-flow small {
+    color: var(--muted);
+  }
+
+  .impact-flow .after small {
+    color: #fff;
+  }
+
+  .case-brief .brief-title-group > p {
+    display: none;
+  }
+}
+
+/* Context facts: one sunk box with inner horizontal padding; rows divided by hairlines. */
+body[data-project] .case-main .context-facts {
+  padding: 4px 24px;
+  background: var(--panel-sunk);
+  border-top: 0;
+  border-radius: var(--radius-card);
+
+  > div {
+    padding: 15px 0;
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  body[data-project] .case-main .context-facts {
+    padding: 2px 18px;
   }
 }
