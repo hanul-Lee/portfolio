@@ -30,10 +30,10 @@ if(file !== 'index.html') {
     const matchingFrame = cards.find(other => other.portrait === card.portrait);
     assert.ok(Math.abs(card.frame.height-matchingFrame.frame.height)<1,file+' equal image frame heights '+width);
     if (Math.abs(card.card.top-cards[0].card.top)<1) assert.ok(Math.abs(card.card.height-cards[0].card.height)<1,file+' equal visual card heights '+width);
-    const fixedHeight = file === 'project-dashboard.html' ? (width <= 600 ? 220 : 280) : ['project-intranet.html','project-measure.html'].includes(file) ? (width <= 600 ? 380 : 440) : null;
+    const fixedHeight = file === 'project-dashboard.html' ? (width <= 600 ? 220 : 280) : ['project-intranet.html','project-measure.html','project-tbm.html'].includes(file) ? (width <= 600 ? 380 : 440) : null;
     if (fixedHeight) assert.ok(Math.abs(card.frame.height-fixedHeight)<1,file+' fixed visual frame '+width);
     else {
-      const ratio = file === 'project-tbm.html' && card.portrait ? 390/810 : 16/9;
+      const ratio = 16/9;
       const expected = Math.min(card.frame.width/ratio, card.maxHeight || Infinity);
       assert.ok(Math.abs(card.frame.height-expected)<1,file+' compact visual frame '+width);
     }
